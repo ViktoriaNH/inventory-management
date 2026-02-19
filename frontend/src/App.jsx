@@ -1,16 +1,30 @@
 import { SignIn, SignUp } from "@clerk/clerk-react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { CenteringWrapper } from "./components/CenteringWrapper";
 
-const App = () => {
+export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/" element={<Navigate to="/sign-in" />} />
+        <Route
+          path="/sign-in"
+          element={
+            <CenteringWrapper>
+              <SignIn />
+            </CenteringWrapper>
+          }
+        />
+        <Route
+          path="/sign-up"
+          element={
+            <CenteringWrapper>
+              <SignUp />
+            </CenteringWrapper>
+          }
+        />
         {/* <Route path="/dashboard" element={<Dasboard />} /> */}
       </Routes>
     </BrowserRouter>
   );
 };
-
-export default App;
