@@ -13,8 +13,6 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
-app.use();
-
-app.use('/api/users', userRoutes)
+// app.use('/api/users')
 
 app.listen(PORT);
