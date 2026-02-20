@@ -1,10 +1,10 @@
-import { PrismaClient } from "@prisma/client";
 
-export const prisma = new PrismaClient();
+import { prisma } from "../../prisma/client";
 
 export const createUser = async (req, res) => {
   try {
-    const { clerkId, email, name } = req.body;
+    const { email, name } = req.body; // то, что присылает фронтенд
+    const clerkId = req.userId;
 
     if (!clerkId || !email || !name) {
       return res.status(400).json({ message: "Missing required fields" });
@@ -23,6 +23,7 @@ export const createUser = async (req, res) => {
     });
 
     return res.status(201).json({ message: "User was registered" });
+
   } catch (error) {
     return res.status(500).json({ message: "Server error" });
   }

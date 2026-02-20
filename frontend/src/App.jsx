@@ -23,7 +23,7 @@ export const App = () => {
             </CenteringWrapper>
           }
         />
-        {/* <Route path="/dashboard" element={<Dasboard />} /> */}
+        <Route path="/dashboard" element={<Dasboard />} />
       </Routes>
     </BrowserRouter>
   );
