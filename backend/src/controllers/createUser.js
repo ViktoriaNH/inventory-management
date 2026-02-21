@@ -1,14 +1,11 @@
-
-import { prisma } from "../../prisma/client";
+import { prisma } from "../../prisma/client.js";
+import { clerkClient } from "@clerk/clerk-sdk-node";
 
 export const createUser = async (req, res) => {
   try {
-    const { email, name } = req.body; // то, что присылает фронтенд
-    const clerkId = req.userId;
+    const clerkId = req.auth.userId;
 
-    if (!clerkId || !email || !name) {
-      return res.status(400).json({ message: "Missing required fields" });
-    }
+    const clerkUser = await clerkClient.users.getUser(clerkId);
 
     const user = await prisma.user.findUnique({
       where: { clerkId },
@@ -19,11 +16,14 @@ export const createUser = async (req, res) => {
     }
 
     const newUser = await prisma.user.create({
-      data: { clerkId, email, name },
+      data: {
+        clerkId: clerkUser.id,
+        email: clerkUser.primaryEmailAddress.emailAddress,
+        name: clerkUser.username,
+      },
     });
 
     return res.status(201).json({ message: "User was registered" });
-
   } catch (error) {
     return res.status(500).json({ message: "Server error" });
   }

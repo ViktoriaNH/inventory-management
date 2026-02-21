@@ -1,5 +1,10 @@
 {
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n FRONTEND,BACKEND -c blue,green \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\""
+  },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0"
   }

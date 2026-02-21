@@ -1,21 +1,20 @@
 import { useUser } from "@clerk/clerk-react";
 import { useEffect } from "react";
-// import { createUser } from "../api/createUser";
+import { createUser } from "../api/createUser";
+import { Header } from "../components/Header";
 
-export const Dasboard = () => {
-  const { isSignedIn, user } = useUser();
+export const Dashboard = () => {
+  const { isLoaded, isSignedIn, user } = useUser();
 
   useEffect(() => {
-    if (!isSignedIn) return;
+    if (!isLoaded || !isSignedIn || !user) return;
 
-    // const clerkId = user.id;
-    // const email = user.
-    // const name - user.
+    createUser();
+  }, [isLoaded, isSignedIn, user]);
 
-      console.log("USER OBJECT:", user);
-
-    // createUser(username, email);
-  }, [isSignedIn, user]);
-
-  return <div>Страница</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
