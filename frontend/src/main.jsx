@@ -12,8 +12,8 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ClerkProvider
       publishableKey={PUBLISH_KEY}
-      signInFallbackRedirectUrl="/"
-      signUpFallbackRedirectUrl="/"
+      // signInFallbackRedirectUrl="/"
+      // signUpFallbackRedirectUrl="/"
     >
       <App />
     </ClerkProvider>
