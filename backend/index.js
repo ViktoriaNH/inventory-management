@@ -6,6 +6,10 @@ import { clerkMiddleware } from "@clerk/express";
 
 dotenv.config();
 
+console.log("BACKEND ENV CHECK:");
+console.log("CLERK_PUBLISHABLE_KEY:", process.env.CLERK_PUBLISHABLE_KEY);
+console.log("CLERK_SECRET_KEY:", process.env.CLERK_SECRET_KEY);
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const FRONTEND = process.env.FRONTEND_URL || "http://localhost:5173";
