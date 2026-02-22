@@ -10,7 +10,11 @@ const PUBLISH_KEY = import.meta.env.VITE_CLERK_PUBLISH_KEY;
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ClerkProvider publishableKey={PUBLISH_KEY}>
+    <ClerkProvider
+      publishableKey={PUBLISH_KEY}
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/"
+    >
       <App />
     </ClerkProvider>
   </StrictMode>,

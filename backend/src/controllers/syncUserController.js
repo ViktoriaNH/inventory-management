@@ -1,7 +1,7 @@
 import { prisma } from "../../prisma/client.js";
-import { clerkClient } from "@clerk/clerk-sdk-node";
+import { clerkClient } from "@clerk/express";
 
-export const createUser = async (req, res) => {
+export const syncUserController = async (req, res) => {
   try {
     const clerkId = req.auth.userId;
 

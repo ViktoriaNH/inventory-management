@@ -1,9 +1,10 @@
-import { Router} from 'express';
-import {createUser} from '../controllers/createUser.js'
-import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
+import { Router } from "express";
+import { syncUserController } from './../controllers/syncUserController.js';
+import { requireAuth } from "@clerk/express";
+
 
 const router = Router();
 
-router.post('/', ClerkExpressRequireAuth(), createUser); 
+router.post("/", requireAuth(), syncUserController);
 
-export default router; 
+export default router;
