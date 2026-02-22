@@ -7,9 +7,11 @@ import { clerkMiddleware } from "@clerk/express";
 dotenv.config();
 
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 const FRONTEND = process.env.FRONTEND_URL || "http://localhost:5173";
 
+app.use(clerkMiddleware({ signInUrl: undefined }));
 app.use(express.json());
 app.use(
   cors({
@@ -41,7 +43,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(clerkMiddleware({ signInUrl: undefined }));
 app.use("/api/users", userRoutes);
 
 app.use((req, res) => {
