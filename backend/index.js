@@ -20,8 +20,7 @@ const FRONTEND = process.env.FRONTEND_URL || "http://localhost:5173";
 app.use(express.json());
 app.use(
   cors({
-    // origin: FRONTEND,
-    origin: "*", // Временно разрешаем всё
+    origin: FRONTEND,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   }),
@@ -49,7 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(clerkMiddleware());
+app.use(clerkMiddleware({ signInUrl: undefined }));
 app.use("/api/users", userRoutes);
 
 app.use((req, res) => {
