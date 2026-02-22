@@ -3,15 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import userRoutes from "./src/routes/user.routes.js";
 import { clerkMiddleware } from "@clerk/express";
-import * as Clerk from "@clerk/express";
-
-console.log(Clerk);
 
 dotenv.config();
-
-console.log("BACKEND ENV CHECK:");
-console.log("CLERK_PUBLISHABLE_KEY:", process.env.CLERK_PUBLISHABLE_KEY);
-console.log("CLERK_SECRET_KEY:", process.env.CLERK_SECRET_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
