@@ -1,9 +1,13 @@
-export const syncUser = async () => {
+export const syncUser = async (token) => {
   const BACKEND = import.meta.env.VITE_BACKEND_URL;
   console.log("BACKEND =", BACKEND);
 
   const response = await fetch(`${BACKEND}/api/users`, {
     method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
     credentials: "include",
   });
 

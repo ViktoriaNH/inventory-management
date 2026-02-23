@@ -3,15 +3,16 @@ import { useUser } from "@clerk/clerk-react";
 import { syncUser } from "../api/syncUser";
 
 export const useSyncUser = () => {
-  const { isLoaded, isSignedIn } = useUser();
+  const { isLoaded, isSignedIn, getToken } = useUser();
   const syncedRef = useRef(false);
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn || syncedRef.current) return;
 
     (async () => {
-      await syncUser();
+      const token = await getToken;
+      await syncUser(token);
       syncedRef.current = true;
     })();
-  }, [isLoaded, isSignedIn]);
+  }, [isLoaded, isSignedIn, getToken]);
 };
