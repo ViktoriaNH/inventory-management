@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button.jsx";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth, useUser } from "@clerk/clerk-react";
 
 export const Header = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
+  const { isSignedIn } = useUser();
 
   const handleLogout = async () => {
     await signOut();
-
     navigate("/sign-in");
   };
 
@@ -23,9 +23,13 @@ export const Header = () => {
         Inventory Management
       </h1>
 
-      <Button text="Login" variant="outline-dark" onClick={handleLogin} />
-      <Button text="Logout" variant="outline-dark" onClick={handleLogout} />
+      {isSignedIn && (
+        <Button text="Logout" variant="outline-dark" onClick={handleLogout} />
+      )}
+
+      {!isSignedIn && (
+        <Button text="Login" variant="outline-dark" onClick={handleLogin} />
+      )}
     </header>
   );
 };
-
