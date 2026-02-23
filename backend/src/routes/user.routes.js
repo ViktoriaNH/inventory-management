@@ -4,6 +4,14 @@ import { requireAuth } from "@clerk/express";
 
 const router = Router();
 
-router.post("/", requireAuth(), syncUserController);
+router.post(
+  "/",
+  (req, res, next) => {
+    console.log("BEFORE requireAuth", req.headers);
+    next();
+  },
+  requireAuth(),
+  syncUserController,
+);
 
 export default router;
