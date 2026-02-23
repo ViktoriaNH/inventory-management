@@ -43,7 +43,6 @@ app.use((req, res, next) => {
 
 app.use(clerkMiddleware());
 app.use("/api/users", userRoutes);
-ф;
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
