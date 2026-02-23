@@ -13,8 +13,7 @@ const FRONTEND = process.env.FRONTEND_URL || "http://localhost:5173";
 app.use(express.json());
 app.use(
   cors({
-    // origin: FRONTEND,
-    origin: "*", // Временно разрешаем всё
+    origin: FRONTEND,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   }),
