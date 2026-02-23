@@ -31,7 +31,7 @@ app.use((req, res, next) => {
       "default-src 'self'",
       "script-src 'self' https://*.clerk.com https://*.clerk.accounts.dev",
       "frame-src https://*.clerk.com https://*.clerk.accounts.dev",
-      "connect-src 'self' http://localhost:3000 https://inventory-management-6e51.onrender.com https://*.clerk.com https://*.clerk.accounts.dev",
+      "connect-src 'self' http://localhost:3000 https://inventory-management-6e51.onrender.com https://inventory-management-dgxh.onrender.com https://*.clerk.com https://*.clerk.accounts.dev",
       "img-src 'self' data: https://*.clerk.com https://*.clerk.accounts.dev",
       "style-src 'self'",
       "base-uri 'self'",
@@ -43,6 +43,7 @@ app.use((req, res, next) => {
 
 app.use(clerkMiddleware());
 app.use("/api/users", userRoutes);
+ф;
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
