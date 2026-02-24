@@ -9,7 +9,7 @@ export const Header = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate("/sign-in");
+    // navigate("/sign-in");
   };
 
   const handleLogin = async () => {
@@ -23,13 +23,9 @@ export const Header = () => {
         Inventory Management
       </h1>
 
-      {isSignedIn && (
-        <Button text="Logout" variant="outline-dark" onClick={handleLogout} />
-      )}
+      {isSignedIn && <Button text="Logout" onClick={handleLogout} />}
 
-      {!isSignedIn && (
-        <Button text="Login" variant="outline-dark" onClick={handleLogin} />
-      )}
+      {!isSignedIn && <Button text="Login" onClick={handleLogin} />}
     </header>
   );
 };
