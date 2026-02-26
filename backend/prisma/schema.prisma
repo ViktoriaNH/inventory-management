@@ -27,12 +27,150 @@ model User {
   email   String @unique
   name    String
   clerkId String @unique @map("clerk_id")
-  
 
   role      UserRole   @default(USER)
   status    UserStatus @default(ACTIVE)
   createdAt DateTime   @default(now()) @map("created_at")
   updatedAt DateTime   @updatedAt @map("updated_at")
 
+  inventories Inventory[]
+  comments    Comment[]
+  items       Item[]
+
   @@map("users")
+}
+
+model Inventory {
+  id          String   @id @default(uuid()) @db.Uuid
+  title       String
+  description String?
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  imgUrl      String?  @map("img_url")
+  version     Int      @default(1)
+
+  categoryId String   @map("category_id") @db.Uuid
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  creatorId String @map("creator_id") @db.Uuid
+  creator   User   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+
+  customString1State Boolean @default(false) @map("custom_string1_state")
+  customString1Name  String? @map("custom_string1_name")
+
+  customString2State Boolean @default(false) @map("custom_string2_state")
+  customString2Name  String? @map("custom_string2_name")
+
+  customString3State Boolean @default(false) @map("custom_string3_state")
+  customString3Name  String? @map("custom_string3_name")
+
+  customText1State Boolean @default(false) @map("custom_text1_state")
+  customText1Name  String? @map("custom_text1_name")
+
+  customText2State Boolean @default(false) @map("custom_text2_state")
+  customText2Name  String? @map("custom_text2_name")
+
+  customText3State Boolean @default(false) @map("custom_text3_state")
+  customText3Name  String? @map("custom_text3_name")
+
+  customNumber1State Boolean @default(false) @map("custom_number1_state")
+  customNumber1Name  String? @map("custom_number1_name")
+
+  customNumber2State Boolean @default(false) @map("custom_number2_state")
+  customNumber2Name  String? @map("custom_number2_name")
+
+  customNumber3State Boolean @default(false) @map("custom_number3_state")
+  customNumber3Name  String? @map("custom_number3_name")
+
+  customFile1State Boolean @default(false) @map("custom_file1_state")
+  customFile1Name  String? @map("custom_file1_name")
+
+  customFile2State Boolean @default(false) @map("custom_file2_state")
+  customFile2Name  String? @map("custom_file2_name")
+
+  customFile3State Boolean @default(false) @map("custom_file3_state")
+  customFile3Name  String? @map("custom_file3_name")
+
+  customBool1State Boolean @default(false) @map("custom_bool1_state")
+  customBool1Name  String? @map("custom_bool1_name")
+
+  customBool2State Boolean @default(false) @map("custom_bool2_state")
+  customBool2Name  String? @map("custom_bool2_name")
+
+  customBool3State Boolean @default(false) @map("custom_bool3_state")
+  customBool3Name  String? @map("custom_bool3_name")
+
+  comments Comment[]
+  items    Item[]
+
+  @@map("inventories")
+}
+
+model Comment {
+  id        String   @id @default(uuid()) @db.Uuid
+  text      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  inventoryId String?    @map("inventory_id")
+  inventory   Inventory? @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+
+  authorId String? @map("author_id")
+  author   User?   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("comments")
+}
+
+model Category {
+  id   String @id @default(uuid()) @db.Uuid
+  name String @unique
+
+  inventories Inventory[]
+
+  @@map("categories")
+}
+
+model Item {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  customId  String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  version   Int      @default(1)
+
+  inventoryId String
+  inventory   Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+
+  creatorId String @map("creator_id") @db.Uuid
+  creator   User   @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+
+  customString1Value String? @map("custom_string1_value")
+  customString2Value String? @map("custom_string2_value")
+  customString3Value String? @map("custom_string3_value")
+
+  customText1Value String? @map("custom_text1_value")
+  customText2Value String? @map("custom_text2_value")
+  customText3Value String? @map("custom_text3_value")
+
+  customNumber1Value Int? @map("custom_number1_value")
+  customNumber2Value Int? @map("custom_number2_value")
+  customNumber3Value Int? @map("custom_number3_value")
+
+  customFile1Value String? @map("custom_file1_value")
+  customFile2Value String? @map("custom_file2_value")
+  customFile3Value String? @map("custom_file3_value")
+
+  customBoolValue  Boolean? @map("custom_bool1_value")
+  customBool2Value Boolean? @map("custom_bool2_value")
+  customBool3Value Boolean? @map("custom_bool3_value")
+
+  @@unique([customId, inventoryId])
+  @@map("items")
+}
+
+model Tag {
+  id   String @id @default(uuid()) @db.Uuid
+  name String @unique
+
+  @@map("tags")
 }

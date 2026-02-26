@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useAuth, useUser } from "@clerk/clerk-react";
-import { syncUser } from './../api/users';
+import { syncUser } from '../api/user-api';
 
 export const useSyncUser = () => {
   const { isLoaded, isSignedIn } = useUser();
