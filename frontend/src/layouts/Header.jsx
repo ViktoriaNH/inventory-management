@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Button from "./Button.jsx";
+import Button from "../components/Button.jsx";
 import { useAuth, useUser } from "@clerk/clerk-react";
 
 export const Header = () => {
