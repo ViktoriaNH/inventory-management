@@ -6,7 +6,7 @@ export const Dashboard = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="container p-1">
         <TopInventories />
         <LatestInvenyories />
       </main>

@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getTopInventoriesController } from "../controllers/get-top-inventory";
+import {getTopInventoriesController }  from '../controllers/get-top-inventory.js'
+
 
 const router = Router();
 
-router.get('/top', getTopInventoriesController());
+router.get('/top', getTopInventoriesController);
 
 export default router;

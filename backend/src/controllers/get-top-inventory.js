@@ -1,4 +1,4 @@
-import { getTopInventories } from "../services/inventory";
+import { getTopInventories } from "../services/inventory.js";
 
 export const getTopInventoriesController = async (req, res) => {
   console.log("!!! МЫ ВНУТРИ КОНТРОЛЛЕРА !!!");

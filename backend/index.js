@@ -18,7 +18,7 @@ app.use(csp);
 
 app.use(clerkMiddleware());
 app.use("/api/users", userRoutes);
-app,get('/api/inventories', inventoryRoutes)
+app.use('/api/inventories', inventoryRoutes)
 
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));
 
