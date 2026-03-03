@@ -2,7 +2,7 @@ import { SignIn, SignUp } from "@clerk/clerk-react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CenteringWrapper } from "./layouts/CenteringWrapper";
 import { useSyncUser } from "./hooks/useUserSync";
-import { Dashboard } from "./layouts/Dashboard";
+import { Dashboard } from "./pages/Dashboard";
 
 export const App = () => {
   useSyncUser();

@@ -1,12 +1,12 @@
-import TableBody from "./TableBody";
-import TableHeader from "./TableHeader/TableHeader";
+import {TableBody} from "./TableBody";
+import {TableHeader} from "./TableHeader";
 
-export const UserTable = () => {
+export const UserTable = ({ data = [], columns = [] }) => {
   return (
     <div className="table-responsive">
       <table className="table table-hover table-bordered border-primary shadow mb-0">
-        <TableHeader />
-        <TableBody />
+        <TableHeader columns={columns}/>
+        <TableBody data={data} />
       </table>
     </div>
   );

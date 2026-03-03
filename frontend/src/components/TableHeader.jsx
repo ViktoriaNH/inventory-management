@@ -1,12 +1,16 @@
-export const TableHeader = () => {
+export const TableHeader = ({ columns = [] }) => {
   return (
     <thead className="bg-transparent">
       <tr className="border-primary border-2">
-        <th scope="col" className="bg-transparent text-secondary">
-          <input type="checkbox" />
-        </th>
-
-        <th className="fw-bold bg-transparent border-primary border-2 text-muted"></th>
+        {columns.map((column) => (
+          <th
+            key={column.field}
+            scope="col"
+            className="fw-bold bg-transparent border-primary border-2 text-muted"
+          >
+            {column.label}
+          </th>
+        ))}
       </tr>
     </thead>
   );
