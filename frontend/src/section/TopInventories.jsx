@@ -12,10 +12,10 @@ export const TopInventories = () => {
   });
 
   if (isPending) {
-    return <span>Loading inventories</span>;
+    return <Alert type="info">{ALERT_MESSAGES.LOADING_INVENTORIES}</Alert>;
   }
   if (isError) {
-    return <Alert type="danger">{ALERT_MESSAGES.FETCH_ERROR}</Alert>;
+    return <Alert>{ALERT_MESSAGES.FETCH_ERROR}</Alert>;
   }
 
   if (!data.length) {
