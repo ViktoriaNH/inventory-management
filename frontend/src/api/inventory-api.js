@@ -9,3 +9,10 @@ export const fetchTopInventories = async () => {
   console.log("STATUS =", response.status);
   return response.json();
 };
+
+// export const createNewInventory = async () => {
+//     const BACKEND = import.meta.env.VITE_BACKEND_URL;
+//   console.log("BACKEND =", BACKEND);
+
+//   const response = 
+// }

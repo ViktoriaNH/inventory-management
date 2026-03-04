@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CenteringWrapper } from "./layouts/CenteringWrapper";
 import { useSyncUser } from "./hooks/useUserSync";
 import { Dashboard } from "./pages/Dashboard";
+import { CreateInventory } from "./pages/CreateInventory";
+
 
 export const App = () => {
   useSyncUser();
@@ -27,6 +29,7 @@ export const App = () => {
             </CenteringWrapper>
           }
         />
+        <Route path="/inventory/create" element={<CreateInventory />} />
       </Routes>
     </BrowserRouter>
   );

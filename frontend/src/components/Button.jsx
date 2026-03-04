@@ -1,11 +1,17 @@
-const Button = (props) => {
-  const { text, onClick, variant = "outline-dark", type = "button" } = props;
-
+export const Button = ({
+  text,
+  onClick,
+  className,
+  variant = "outline-dark",
+  type = "button",
+}) => {
   return (
-    <button type={type} className={`btn btn-${variant}`} onClick={onClick}>
+    <button
+      type={type}
+      className={`btn btn-${variant} ${className}`}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
 };
-
-export default Button;

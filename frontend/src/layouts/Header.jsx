@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button.jsx";
+import {Button} from "../components/Button.jsx";
 import { useAuth, useUser } from "@clerk/clerk-react";
 
 export const Header = () => {
@@ -9,10 +9,9 @@ export const Header = () => {
 
   const handleLogout = async () => {
     await signOut();
-    // navigate("/sign-in");
   };
 
-  const handleLogin = async () => {
+  const toSignIn = () => {
     navigate("/sign-in");
   };
 
@@ -25,7 +24,7 @@ export const Header = () => {
 
       {isSignedIn && <Button text="Logout" onClick={handleLogout} />}
 
-      {!isSignedIn && <Button text="Login" onClick={handleLogin} />}
+      {!isSignedIn && <Button text="Login" onClick={toSignIn} />}
     </header>
   );
 };
