@@ -1,4 +1,4 @@
-import { CreateInventoryForm } from "../components/CresteInventoryForm";
+import { CreateInventoryForm } from "../components/CreateInventoryForm";
 import { Header } from "../layouts/Header";
 
 export const CreateInventory = () => {
