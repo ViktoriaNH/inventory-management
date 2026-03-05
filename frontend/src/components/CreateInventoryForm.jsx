@@ -47,6 +47,8 @@ export const CreateInventoryForm = () => {
 
           <Select name="categoryId" label="Select category" options required />
 
+          // TODO: теги забыла добавить 
+
           <Input name="imgUrl" label="Image" />
 
           <Checkbox name="isPublic" label="Public inventory" />

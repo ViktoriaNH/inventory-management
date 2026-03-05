@@ -52,3 +52,7 @@ export const getLatestInventories = async () => {
     onError(e);
   }
 };
+
+export const createInentory = () => {
+  
+}
