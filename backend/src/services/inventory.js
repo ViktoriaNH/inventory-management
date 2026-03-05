@@ -1,58 +1,65 @@
 export const getTopInventories = async () => {
-  try {
-    const inventories = await prisma.inventory.findMany({
-      select: {
-        id: true,
-        title: true,
-        description: true,
-        creator: {
-          select: {
-            name: true,
-          },
-        },
-        _count: {
-          select: {
-            items: true,
-          },
+  const inventories = await prisma.inventory.findMany({
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      creator: {
+        select: {
+          name: true,
         },
       },
-      orderBy: {
-        _count: {
-          items: "desc",
+      _count: {
+        select: {
+          items: true,
         },
       },
-      take: 5,
-    });
-    return inventories;
-  } catch (e) {
-    onError(e);
-  }
+    },
+    orderBy: {
+      _count: {
+        items: "desc",
+      },
+    },
+    take: 5,
+  });
+  return inventories;
 };
 
 export const getLatestInventories = async () => {
-  try {
-    const inventories = await prisma.inventory.findMany({
-      select: {
-        id: true,
-        title: true,
-        description: true,
-        creator: {
-          select: {
-            name: true,
-          },
+  const inventories = await prisma.inventory.findMany({
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      creator: {
+        select: {
+          name: true,
         },
       },
-      orderBy: {
-        created_at: "desc",
-      },
-      take: 5,
-    });
-    return inventories;
-  } catch (e) {
-    onError(e);
-  }
+    },
+    orderBy: {
+      created_at: "desc",
+    },
+    take: 5,
+  });
+  return inventories;
 };
 
-export const createInentory = () => {
-  
-}
+export const createInventory = async ({ inventoryData }) => {
+  const { title, description, categoryId, imgUrl, isPublic, tag, creatorId } =
+    inventoryData;
+
+  const inventory = await prisma.inventory.create({
+    data: {
+      title,
+      description,
+      categoryId,
+      imgUrl,
+      isPublic,
+      tag,
+      creatorId 
+    },
+  });
+
+  return inventory;
+};

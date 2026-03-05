@@ -1,4 +1,5 @@
-import { createInentory } from "../services/inventory";
+import { getUserFromClerk } from "../helpers/get-user-from-clerk.js";
+import { createInventory } from "../services/inventory.js";
 
 export const createInventoryController = async (req, res) => {
   console.log("!!! МЫ ВНУТРИ КОНТРОЛЛЕРА !!!");
@@ -12,6 +13,13 @@ export const createInventoryController = async (req, res) => {
       return res.status(400).json({ message: "Fields are required" });
     }
 
+    const user = await getUserFromClerk(req);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+
     const inventoryData = {
       title,
       description,
@@ -19,10 +27,10 @@ export const createInventoryController = async (req, res) => {
       imgUrl,
       isPublic,
       tag,
-      creatorId,
+      creatorId: user.id,
     };
 
-    const inventory = await createInentory({ inventoryData });
+    const inventory = await createInventory(inventoryData);
 
     res.status(201).json(inventory);
   } catch (error) {
