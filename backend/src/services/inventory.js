@@ -1,3 +1,5 @@
+import { prisma } from "../../prisma/client.js";
+
 export const getTopInventories = async () => {
   const inventories = await prisma.inventory.findMany({
     select: {
@@ -45,8 +47,8 @@ export const getLatestInventories = async () => {
   return inventories;
 };
 
-export const createInventory = async ({ inventoryData }) => {
-  const { title, description, categoryId, imgUrl, isPublic, tag, creatorId } =
+export const createInventory = async (inventoryData) => {
+  const { title, description, categoryId, imgUrl, isPublic, creatorId } =
     inventoryData;
 
   const inventory = await prisma.inventory.create({
@@ -56,8 +58,7 @@ export const createInventory = async ({ inventoryData }) => {
       categoryId,
       imgUrl,
       isPublic,
-      tag,
-      creatorId 
+      creatorId,
     },
   });
 

@@ -1,40 +1,21 @@
-import { getUserFromClerk } from "../helpers/get-user-from-clerk.js";
+import { handleError } from "../helpers/handle-error.js";
 import { createInventory } from "../services/inventory.js";
+import { formInventoryData } from "../helpers/from-inventory-data.js";
+import { validateInventoryData } from "../helpers/validate-inventory-data.js";
+import { checkUserInDB } from "../helpers/check-user-in-db.js";
 
 export const createInventoryController = async (req, res) => {
-  console.log("!!! МЫ ВНУТРИ КОНТРОЛЛЕРА !!!");
-
-  //TODO: потом добавить проверку, есть ли доступ у юзера добавялть инвентарь
   try {
-    const data = req.body;
-    const { title, description, categoryId, imgUrl, isPublic, tag } = data;
+    const user = await checkUserInDB(req);
 
-    if (!title || !description || !categoryId || !tag) {
-      return res.status(400).json({ message: "Fields are required" });
-    }
+    validateInventoryData(req.body);
 
-    const user = await getUserFromClerk(req);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-
-    const inventoryData = {
-      title,
-      description,
-      categoryId,
-      imgUrl,
-      isPublic,
-      tag,
-      creatorId: user.id,
-    };
+    const inventoryData = formInventoryData(req.body, user.id);
 
     const inventory = await createInventory(inventoryData);
 
     res.status(201).json(inventory);
   } catch (error) {
-    console.error("Критическая ошибка", error);
-    return res.status(500).json({ message: "Server error" });
+    handleError(res, error);
   }
 };

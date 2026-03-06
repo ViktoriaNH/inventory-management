@@ -6,6 +6,7 @@ import { corsOptions } from "./src/config/cors.js";
 import { csp, logger } from "./src/middlewares/security.js";
 import userRoutes from "./src/routes/user-routes.js";
 import inventoryRoutes from "./src/routes/inventory-routes.js";
+import categoryRoutes from "./src/routes/category-routes.js";
 
 const { PORT } = loadEnv();
 
@@ -19,6 +20,7 @@ app.use(csp);
 app.use(clerkMiddleware());
 app.use("/api/users", userRoutes);
 app.use("/api/inventories", inventoryRoutes);
+app.use("/api/categories", categoryRoutes);
 
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));
 

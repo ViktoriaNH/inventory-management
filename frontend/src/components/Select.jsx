@@ -11,7 +11,6 @@ export const Select = ({ name, label, options = [], required }) => {
         {...register(name, { required })}
       >
         <option value="" disabled>
-          {options}
         </option>
       </select>
     </div>
