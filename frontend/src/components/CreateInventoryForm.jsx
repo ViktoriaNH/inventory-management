@@ -1,20 +1,21 @@
 import { Input } from "./Input";
 import { FormWrapper } from "../layouts/FormWrapper";
 import { Button } from "./Button";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { createInventory } from "../api/inventory-api";
 import { Alert } from "../components/Alert";
 import { ALERT_MESSAGES } from "../data/alert-massages";
 import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
 import { queryClient } from "../config/queryClient";
+import { fetchCategories } from "../api/category-api";
 
 export const CreateInventoryForm = () => {
   const mutation = useMutation({
     mutationFn: (formData) => {
       return createInventory(formData);
     },
-// TODO: добавить оптом еще послендие инвентари 
+    // TODO: добавить оптом еще послендие инвентари
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["inventories", "my"] });
       queryClient.invalidateQueries({ queryKey: ["inventories", "top"] });
@@ -28,6 +29,11 @@ export const CreateInventoryForm = () => {
   const handleCreate = (formData) => {
     mutation.mutate(formData);
   };
+
+  const { data = [] } = useQuery({
+    queryKey: ["categories", "all"],
+    queryFn: fetchCategories,
+  });
 
   return (
     <section className="container p-1">
@@ -45,8 +51,13 @@ export const CreateInventoryForm = () => {
             required
           />
 
-          <Select name="categoryId" label="Select category" options required />
-          
+          <Select
+            name="categoryId"
+            label="Select category"
+            options={data}
+            required
+          />
+
           <Input name="imgUrl" label="Image" />
 
           <Checkbox name="isPublic" label="Public inventory" />
