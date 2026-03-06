@@ -4,10 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Alert } from "../components/Alert";
 import { ALERT_MESSAGES } from "../data/alert-massages";
 import { TOP_INVENTORIES_COLUMNS } from "../data/columns";
+import { QUERY_KEYS } from "../data/query-keys";
 
 export const TopInventories = () => {
   const { isPending, isError, data } = useQuery({
-    queryKey: ["inventories", "top"],
+    queryKey: QUERY_KEYS.inventories.top,
     queryFn: fetchTopInventories,
   });
 

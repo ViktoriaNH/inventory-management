@@ -1,47 +1,23 @@
 import { Input } from "./Input";
 import { FormWrapper } from "../layouts/FormWrapper";
 import { Button } from "./Button";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { createInventory } from "../api/inventory-api";
 import { Alert } from "../components/Alert";
 import { ALERT_MESSAGES } from "../data/alert-massages";
 import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
-import { queryClient } from "../config/queryClient";
-import { fetchCategories } from "../api/category-api";
+import { useCategories } from "../hooks/useCategories";
+import { useCreateInventory } from "../hooks/useCreateInventory";
 
 export const CreateInventoryForm = () => {
-  const mutation = useMutation({
-    mutationFn: (formData) => {
-      return createInventory(formData);
-    },
-    // TODO: добавить оптом еще послендие инвентари
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["inventories", "my"] });
-      queryClient.invalidateQueries({ queryKey: ["inventories", "top"] });
-    },
-
-    onError: (error) => {
-      console.error(error);
-    },
-  });
-
-  const handleCreate = (formData) => {
-    mutation.mutate(formData);
-  };
-
-  const { data = [] } = useQuery({
-    queryKey: ["categories", "all"],
-    queryFn: fetchCategories,
-  });
-
+  const { data = [] } = useCategories();
+  const { createInventory, isError } = useCreateInventory();
   return (
     <section className="container p-1">
       <h1 className="text-center">Create inventory</h1>
 
-      {mutation.isError && <Alert>{ALERT_MESSAGES.FETCH_ERROR}</Alert>}
+      {isError && <Alert>{ALERT_MESSAGES.FETCH_ERROR}</Alert>}
 
-      <FormWrapper onSubmit={handleCreate}>
+      <FormWrapper onSubmit={createInventory}>
         <div className="d-flex flex-column gap-2">
           <Input name="title" label="Title" required />
           <Input
