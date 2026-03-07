@@ -5,6 +5,7 @@ import { validateInventoryData } from "../helpers/validate-inventory-data.js";
 import { checkUserInDB } from "../helpers/check-user-in-db.js";
 
 export const createInventoryController = async (req, res) => {
+  
   try {
     const user = await checkUserInDB(req);
 

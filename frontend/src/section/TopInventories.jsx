@@ -1,10 +1,10 @@
 import { UserTable } from "../components/UserTable";
 import { fetchTopInventories } from "../api/inventory-api";
 import { useQuery } from "@tanstack/react-query";
-import { Alert } from "../components/Alert";
 import { ALERT_MESSAGES } from "../data/alert-massages";
 import { TOP_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/query-keys";
+import { showAlert } from "../helrpers/show-alert";
 
 export const TopInventories = () => {
   const { isPending, isError, data } = useQuery({
@@ -13,14 +13,14 @@ export const TopInventories = () => {
   });
 
   if (isPending) {
-    return <Alert type="info">{ALERT_MESSAGES.LOADING_INVENTORIES}</Alert>;
+    return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "info");
   }
   if (isError) {
-    return <Alert>{ALERT_MESSAGES.FETCH_ERROR}</Alert>;
+    return showAlert(ALERT_MESSAGES.FETCH_ERROR);
   }
 
   if (!data.length) {
-    return <Alert type="info">{ALERT_MESSAGES.INFO_NO_INVENTORIES}</Alert>;
+    return showAlert(ALERT_MESSAGES.INFO_NO_INVENTORIES, "info");
   }
 
   return (

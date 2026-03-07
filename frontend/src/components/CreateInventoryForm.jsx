@@ -1,12 +1,12 @@
 import { Input } from "./Input";
 import { FormWrapper } from "../layouts/FormWrapper";
 import { Button } from "./Button";
-import { Alert } from "../components/Alert";
 import { ALERT_MESSAGES } from "../data/alert-massages";
 import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
 import { useCategories } from "../hooks/useCategories";
 import { useCreateInventory } from "../hooks/useCreateInventory";
+import { showAlert } from "../helrpers/show-alert";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
@@ -15,7 +15,7 @@ export const CreateInventoryForm = () => {
     <section className="container p-1">
       <h1 className="text-center">Create inventory</h1>
 
-      {isError && <Alert>{ALERT_MESSAGES.FETCH_ERROR}</Alert>}
+      {isError && showAlert(ALERT_MESSAGES.FETCH_ERROR)}
 
       <FormWrapper onSubmit={createInventory}>
         <div className="d-flex flex-column gap-2">

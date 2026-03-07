@@ -3,7 +3,7 @@ import { handleError } from "../helpers/handle-error.js";
 import { createNewUser } from "../helpers/create-new-user.js";
 
 export const syncUserController = async (req, res) => {
-  console.log("!!! МЫ ВНУТРИ КОНТРОЛЛЕРА !!!");
+  console.log("!!! МЫ ВНУТРИ КОНТРОЛЛЕРА СИНХРОНИЗАЦИИ !!!");
   try {
     const user = await getUserFromClerk(req);
     console.log("Шаг 2: Поиск в БД завершен");
