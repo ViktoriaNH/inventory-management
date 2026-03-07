@@ -1,22 +1,8 @@
-export const fetchTopInventories = async () => {
-  const BACKEND = import.meta.env.VITE_BACKEND_URL;
-  console.log("BACKEND =", BACKEND);
-
-  const response = await fetch(`${BACKEND}/api/inventories/top`, {
-    method: "GET",
-  });
-
-  if (!response.ok) {
-    throw new Error();
-  }
-
-  console.log("STATUS =", response.status);
-  return response.json();
+export const fetchTopInventories = async (api) => {
+  return api("/api/inventories/top");
 };
 
 export const createInventory = (api, formData) => {
-  console.log("FORM DATA", formData);
-
   return api("/api/inventories/create", {
     method: "POST",
     body: JSON.stringify(formData),

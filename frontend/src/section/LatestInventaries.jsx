@@ -1,3 +1,9 @@
-export const LatestInvenyories = () => {
+import { UserTable } from "../components/UserTable";
 
-}
+export const LatestInvenyories = () => {
+  return (
+    <>
+      <UserTable />
+    </>
+  );
+};
