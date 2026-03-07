@@ -1,3 +1,3 @@
-export const showAlert = (message, type) => {
-  <Alert>{message}</Alert>;
+export const showAlert = (message, type = "danger") => {
+  return <Alert type={type}>{message}</Alert>;
 };

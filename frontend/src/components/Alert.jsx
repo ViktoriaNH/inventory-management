@@ -1,6 +1,4 @@
-export const Alert = (props) => {
-  const { type = "danger", children } = props;
-
+export const Alert = ({ type = "danger", children }) => {
   return (
     <div className={`alert alert-${type}`} role="alert">
       {children}
