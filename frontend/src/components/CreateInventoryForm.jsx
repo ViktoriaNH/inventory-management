@@ -6,7 +6,7 @@ import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
 import { useCategories } from "../hooks/useCategories";
 import { useCreateInventory } from "../hooks/useCreateInventory";
-import { showAlert } from "../helrpers/show-alert";
+import { showAlert } from "../helpers/show-alert";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();

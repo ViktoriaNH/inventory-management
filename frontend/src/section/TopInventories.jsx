@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ALERT_MESSAGES } from "../data/alert-massages";
 import { TOP_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/query-keys";
-import { showAlert } from "../helrpers/show-alert";
+import { showAlert } from "../helpers/show-alert";
 
 export const TopInventories = () => {
   const { isPending, isError, data } = useQuery({
