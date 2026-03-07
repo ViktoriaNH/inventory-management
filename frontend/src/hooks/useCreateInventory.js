@@ -2,10 +2,13 @@ import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../config/queryClient";
 import { createInventory } from "../api/inventory-api.js";
 import { QUERY_KEYS } from "../data/query-keys.js";
+import { useApi } from "./useApi.js";
 
 export const useCreateInventory = () => {
+  const api = useApi();
+
   const mutation = useMutation({
-    mutationFn: createInventory,
+    mutationFn: () => createInventory(api),
 
     // TODO: добавить оптом еще послендие инвентари
 
