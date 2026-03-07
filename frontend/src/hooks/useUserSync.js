@@ -1,26 +1,19 @@
 import { useEffect, useRef } from "react";
-import { useAuth, useUser } from "@clerk/clerk-react";
-import { syncUser } from '../api/user-api';
+import { useUser } from "@clerk/clerk-react";
+import { syncUser } from "../api/user-api";
+import { useApi } from "./useApi";
 
 export const useSyncUser = () => {
   const { isLoaded, isSignedIn } = useUser();
-  const { getToken } = useAuth();
   const syncedRef = useRef(false);
+  const api = useApi();
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn || syncedRef.current) return;
 
     (async () => {
-      const token = await getToken();
-      console.log("Токен получен");
-
-      if (!token) {
-        console.log("Токен не получен");
-        return;
-      }
-
-      await syncUser(token);
+      await syncUser(api);
       syncedRef.current = true;
     })();
-  }, [isLoaded, isSignedIn, getToken]);
+  }, [isLoaded, isSignedIn, api]);
 };
