@@ -8,7 +8,7 @@ export const useCreateInventory = () => {
   const api = useApi();
 
   const mutation = useMutation({
-    mutationFn: () => createInventory(api),
+    mutationFn: (formData) => createInventory(api, formData),
 
     // TODO: добавить оптом еще послендие инвентари
 

@@ -15,6 +15,8 @@ export const fetchTopInventories = async () => {
 };
 
 export const createInventory = (api, formData) => {
+  console.log("FORM DATA", formData);
+
   return api("/api/inventories/create", 'POST', { 
     body: JSON.stringify(formData) 
   });

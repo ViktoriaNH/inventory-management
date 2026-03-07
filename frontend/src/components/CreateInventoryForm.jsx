@@ -11,6 +11,7 @@ import { showAlert } from "../helpers/show-alert";
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
   const { createInventory, isError } = useCreateInventory();
+  
   return (
     <section className="container p-1">
       <h1 className="text-center">Create inventory</h1>
