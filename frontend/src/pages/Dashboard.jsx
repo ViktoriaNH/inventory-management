@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Header } from "../layouts/Header";
-import { LatestInvenyories } from "../section/LatestInventaries";
+import { LatestInventories } from "../section/LatestInventories";
 import { TopInventories } from "../section/TopInventories";
 
 export const Dashboard = () => {
@@ -14,7 +14,7 @@ export const Dashboard = () => {
       <Header />
       <main className="container p-1 d-flex justify-content-between gap-1">
         <TopInventories />
-        <LatestInvenyories />
+        <LatestInventories />
       </main>
       <Button onClick={toCreate} text="Add new inventory" />
     </>

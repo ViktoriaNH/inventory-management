@@ -7,7 +7,7 @@ import { useApi } from "../hooks/useApi";
 import { useInventories } from "../hooks/useInventories";
 import { ALERT_MESSAGES } from "../data/alert-messages";
 
-export const LatestInvenyories = () => {
+export const LatestInventories = () => {
   const api = useApi();
 
   const { data, isPending, isError } = useInventories(
