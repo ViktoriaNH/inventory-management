@@ -1,6 +1,6 @@
 import { UserTable } from "../components/UserTable";
 import { fetchTopInventories } from "../api/inventory-api";
-import { TOP_INVENTORIES_COLUMNS } from "../data/columns";
+import { MAINPAGE_INVENTORIES_COLUMNS, TOP_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/query-keys";
 import { showAlert } from "../helpers/show-alert";
 import { useApi } from "../hooks/useApi";
@@ -28,7 +28,7 @@ export const TopInventories = () => {
 
   return (
     <>
-      <UserTable columns={TOP_INVENTORIES_COLUMNS} inventories={data} />
+      <UserTable columns={MAINPAGE_INVENTORIES_COLUMNS} inventories={data} />
     </>
   );
 };
