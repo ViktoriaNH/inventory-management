@@ -1,7 +1,7 @@
 import { Input } from "./Input";
 import { FormWrapper } from "../layouts/FormWrapper";
 import { Button } from "./Button";
-import { ALERT_MESSAGES } from "../data/alert-massages";
+import { ALERT_MESSAGES } from "../data/alert-messages";
 import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
 import { useCategories } from "../hooks/useCategories";
