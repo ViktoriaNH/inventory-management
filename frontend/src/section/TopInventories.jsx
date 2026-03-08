@@ -16,14 +16,14 @@ export const TopInventories = () => {
   );
 
   if (isPending) {
-    return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "info");
+    return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "secondary");
   }
   if (isError) {
     return showAlert(ALERT_MESSAGES.FETCH_ERROR);
   }
 
   if (!data.length || data.length === 0) {
-    return showAlert(ALERT_MESSAGES.INFO_NO_INVENTORIES, "info");
+    return showAlert(ALERT_MESSAGES.INFO_NO_INVENTORIES, "light");
   }
 
   return (

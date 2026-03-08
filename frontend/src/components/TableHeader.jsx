@@ -1,12 +1,12 @@
 export const TableHeader = ({ columns = [] }) => {
   return (
-    <thead className="bg-transparent">
-      <tr className="border-primary border-2">
+    <thead>
+      <tr>
         {columns.map((column) => (
           <th
             key={column.field}
             scope="col"
-            className="fw-bold bg-transparent border-primary border-2 text-muted"
+            className="fw-bold text-muted"
           >
             {column.label}
           </th>
