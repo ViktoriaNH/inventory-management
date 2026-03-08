@@ -12,7 +12,7 @@ export const Dashboard = () => {
   return (
     <>
       <Header />
-      <main className="container p-1 d-flex gap-3">
+      <main className="container p-1 d-flex justify-content-between gap-1">
         <TopInventories />
         <LatestInvenyories />
       </main>

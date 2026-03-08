@@ -27,8 +27,11 @@ export const TopInventories = () => {
   }
 
   return (
-    <>
-      <UserTable columns={MAINPAGE_INVENTORIES_COLUMNS} inventories={data} />
-    </>
+    <div>
+      <h1>
+        Popular inventories
+      </h1>
+      <UserTable columns={MAINPAGE_INVENTORIES_COLUMNS} data={data} />
+    </div>
   );
 };
