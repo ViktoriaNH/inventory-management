@@ -7,6 +7,8 @@ import { useInventories } from "../hooks/useInventories";
 export const InventoryTable = ({ title, queryKey, fetch }) => {
   const { data, isPending, isError } = useInventories(queryKey, fetch);
 
+  // TODO: плохо, надо что-то с этим сделать 
+
   if (isPending) {
     return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "secondary");
   }
@@ -19,8 +21,8 @@ export const InventoryTable = ({ title, queryKey, fetch }) => {
   }
 
   return (
-    <div>
-      <h2 className="h5 mb-3">{title}</h2>
+    <div className="w-100">
+      <h2 className="h2 mb-3 text-center">{title}</h2>
       <UserTable columns={MAINPAGE_INVENTORIES_COLUMNS} data={data} />
     </div>
   );
