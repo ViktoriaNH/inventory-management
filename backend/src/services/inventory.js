@@ -47,6 +47,18 @@ export const getLatestInventories = async () => {
   return inventories;
 };
 
+export const getMyInventories = async (userId) => {
+  const inventories = await prisma.inventory.findMany({
+    where: {
+      creatorId: userId,
+    },
+    orderBy: {
+      creatsdAt: 'desc'
+    }
+  });
+  return inventories;
+};
+
 export const createInventory = async (inventoryData) => {
   const { title, description, categoryId, imgUrl, isPublic, creatorId } =
     inventoryData;

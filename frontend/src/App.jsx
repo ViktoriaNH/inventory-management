@@ -4,7 +4,7 @@ import { CenteringWrapper } from "./layouts/CenteringWrapper";
 import { useSyncUser } from "./hooks/useUserSync";
 import { CreateInventory } from "./pages/CreateInventory";
 import { MainPage } from "./pages/MainPage";
-
+import { MyInventory } from "./pages/MyInventory";
 
 export const App = () => {
   useSyncUser();
@@ -30,6 +30,7 @@ export const App = () => {
           }
         />
         <Route path="/inventory/create" element={<CreateInventory />} />
+        <Route path="/my-inventory" element={<MyInventory />} />
       </Routes>
     </BrowserRouter>
   );

@@ -6,7 +6,7 @@ export const MainPage = () => {
   return (
     <>
       <Header />
-      <main className="container p-1 d-flex justify-content-center gap-2">
+      <main className="container p-1 d-flex justify-content-center gap-5">
         <TopInventories />
         <LatestInventories />
       </main>
