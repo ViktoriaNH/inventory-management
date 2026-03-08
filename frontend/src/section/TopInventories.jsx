@@ -1,6 +1,6 @@
 import { UserTable } from "../components/UserTable";
 import { fetchTopInventories } from "../api/inventory-api";
-import { MAINPAGE_INVENTORIES_COLUMNS, TOP_INVENTORIES_COLUMNS } from "../data/columns";
+import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/query-keys";
 import { showAlert } from "../helpers/show-alert";
 import { useApi } from "../hooks/useApi";

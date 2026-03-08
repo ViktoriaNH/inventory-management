@@ -12,11 +12,11 @@ export const Dashboard = () => {
   return (
     <>
       <Header />
-      <main className="container p-1">
+      <main className="container p-1 d-flex gap-3">
         <TopInventories />
         <LatestInvenyories />
-        <Button onClick={toCreate} text="Add new inventory" />
       </main>
+      <Button onClick={toCreate} text="Add new inventory" />
     </>
   );
 };
