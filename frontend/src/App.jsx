@@ -4,7 +4,8 @@ import { CenteringWrapper } from "./layouts/CenteringWrapper";
 import { useSyncUser } from "./hooks/useUserSync";
 import { CreateInventory } from "./pages/CreateInventory";
 import { MainPage } from "./pages/MainPage";
-import { MyInventory } from "./pages/MyInventory";
+import { PATHS } from "./data/paths";
+import { MyPage } from "./pages/MyPage";
 
 export const App = () => {
   useSyncUser();
@@ -12,9 +13,9 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path={PATHS.MAIN_PAGE} element={<MainPage />} />
         <Route
-          path="/sign-in"
+          path={PATHS.LOGIN}
           element={
             <CenteringWrapper>
               <SignIn />
@@ -22,15 +23,15 @@ export const App = () => {
           }
         />
         <Route
-          path="/sign-up"
+          path={PATHS.REGISTER}
           element={
             <CenteringWrapper>
               <SignUp />
             </CenteringWrapper>
           }
         />
-        <Route path="/inventory/create" element={<CreateInventory />} />
-        <Route path="/my-inventory" element={<MyInventory />} />
+        <Route path={PATHS.CREATE_INVENTORY} element={<CreateInventory />} />
+        <Route path={PATHS.MY_PAGE} element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );
