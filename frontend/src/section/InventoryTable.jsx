@@ -1,19 +1,11 @@
-import { fetchLatestInventories } from "../api/inventory-api";
 import { UserTable } from "../components/UserTable";
-import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
-import { QUERY_KEYS } from "../data/query-keys";
-import { showAlert } from "../helpers/show-alert";
-import { useApi } from "../hooks/useApi";
-import { useInventories } from "../hooks/useInventories";
 import { ALERT_MESSAGES } from "../data/alert-messages";
+import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
+import { showAlert } from "../helpers/show-alert";
+import { useInventories } from "../hooks/useInventories";
 
-export const LatestInventories = () => {
-  const api = useApi();
-
-  const { data, isPending, isError } = useInventories(
-    QUERY_KEYS.inventories.latest,
-    () => fetchLatestInventories(api),
-  );
+export const InventoryTable = ({ title, queryKey, fetch }) => {
+  const { data, isPending, isError } = useInventories(queryKey, fetch);
 
   if (isPending) {
     return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "secondary");
@@ -23,12 +15,12 @@ export const LatestInventories = () => {
   }
 
   if (!data.length || data.length === 0) {
-    return showAlert(ALERT_MESSAGES.INFO_NO_INVENTORIES, "light");
+    return <p>{ALERT_MESSAGES.NO_INVENTORIES}</p>;
   }
 
   return (
     <div>
-      <h1>Latest inventories</h1>
+      <h2 className="h5 mb-3">{title}</h2>
       <UserTable columns={MAINPAGE_INVENTORIES_COLUMNS} data={data} />
     </div>
   );
