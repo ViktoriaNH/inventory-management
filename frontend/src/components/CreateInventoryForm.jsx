@@ -11,14 +11,23 @@ import { showAlert } from "../helpers/show-alert";
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
   const { createInventory, isError } = useCreateInventory();
-  
+
+  const handleCreateInventory = (formData, reset) => {
+    createInventory(formData, {
+      onSuccess: () => {
+        showAlert(ALERT_MESSAGES.CREATE_INVENTORIES, "success");
+        reset();
+      },
+    });
+  };
+
   return (
     <section className="container p-1">
       <h1 className="text-center">Create inventory</h1>
 
       {isError && showAlert(ALERT_MESSAGES.FETCH_ERROR)}
 
-      <FormWrapper onSubmit={createInventory}>
+      <FormWrapper onSubmit={handleCreateInventory}>
         <div className="d-flex flex-column gap-2">
           <Input name="title" label="Title" required />
           <Input

@@ -10,8 +10,6 @@ export const useCreateInventory = () => {
   const mutation = useMutation({
     mutationFn: (formData) => createInventory(api, formData),
 
-    // TODO: добавить оптом еще послендие инвентари
-
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: QUERY_KEYS.inventories.my,
@@ -19,6 +17,10 @@ export const useCreateInventory = () => {
 
       queryClient.invalidateQueries({
         queryKey: QUERY_KEYS.inventories.top,
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.inventories.latest,
       });
     },
 
@@ -30,5 +32,6 @@ export const useCreateInventory = () => {
   return {
     createInventory: mutation.mutate,
     isError: mutation.isError,
+    isSuccess: mutation.isSuccess,
   };
 };
