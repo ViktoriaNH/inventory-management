@@ -18,8 +18,8 @@ export const getTopInventories = async () => {
       },
     },
     orderBy: {
-      _count: {
-        items: "desc",
+      items: {
+        _count: "desc",
       },
     },
     take: 5,
@@ -40,7 +40,7 @@ export const getLatestInventories = async () => {
       },
     },
     orderBy: {
-      created_at: "desc",
+      createdAt: "desc",
     },
     take: 5,
   });
