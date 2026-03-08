@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import {Button} from "../components/Button.jsx";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Button } from "../components/Button.jsx";
 import { useAuth, useUser } from "@clerk/clerk-react";
+import { MENU_ITEMS } from "../data/menu-items.js";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -21,6 +22,21 @@ export const Header = () => {
         <i className="bi bi-box2-heart-fill me-2"></i>
         Inventory Management
       </h1>
+
+      <nav className="navbar-expand px-3">
+        <ul className="navbar-nav d-flex align-items-center ">
+          {MENU_ITEMS.map((item) => (
+            <li className="nav-item mx-3" key={item.id}>
+              <NavLink
+                className="nav-link btn btn-sm btn-light border-0 p-2"
+                to={item.link}
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {isSignedIn && <Button text="Logout" onClick={handleLogout} />}
 

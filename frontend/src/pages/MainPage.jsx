@@ -4,7 +4,7 @@ import { Header } from "../layouts/Header";
 import { LatestInventories } from "../section/LatestInventories";
 import { TopInventories } from "../section/TopInventories";
 
-export const Dashboard = () => {
+export const MainPage = () => {
   const navigate = useNavigate();
 
   const toCreate = () => navigate("/inventory/create");

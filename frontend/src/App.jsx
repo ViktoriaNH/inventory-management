@@ -2,8 +2,8 @@ import { SignIn, SignUp } from "@clerk/clerk-react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CenteringWrapper } from "./layouts/CenteringWrapper";
 import { useSyncUser } from "./hooks/useUserSync";
-import { Dashboard } from "./pages/Dashboard";
 import { CreateInventory } from "./pages/CreateInventory";
+import { MainPage } from "./pages/MainPage";
 
 
 export const App = () => {
@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<MainPage />} />
         <Route
           path="/sign-in"
           element={
