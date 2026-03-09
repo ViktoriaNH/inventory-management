@@ -4,6 +4,7 @@ import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { showAlert } from "../helpers/show-alert";
 import { useInventories } from "../hooks/useInventories";
 
+
 export const InventoryTable = ({ title, queryKey, fetch }) => {
   const { data, isPending, isError } = useInventories(queryKey, fetch);
 

@@ -10,7 +10,7 @@ export const Input = ({ name, label, required, as = "input" }) => {
   const Component = as;
 
   return (
-    <>
+    <div className="mb-3">
       {label && <label htmlFor={name}>{label}</label>}
       <Component
         id={name}
@@ -18,6 +18,6 @@ export const Input = ({ name, label, required, as = "input" }) => {
         type={as === "input" ? "text" : undefined}
         {...register(name, { required })}
       />
-    </>
+    </div>
   );
 };

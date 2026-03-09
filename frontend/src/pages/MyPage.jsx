@@ -11,11 +11,13 @@ export const MyPage = () => {
   return (
     <>
       <Header />
-      <InventoryTable
-        title={SECTION_TITLE.MY_INVENTORIES}
-        queryKey={QUERY_KEYS.inventories.my}
-        fetch={() => fetchMyInventory(api)}
-      />
+      <main className="container p-1">
+        <InventoryTable
+          title={SECTION_TITLE.MY_INVENTORIES}
+          queryKey={QUERY_KEYS.inventories.my}
+          fetch={() => fetchMyInventory(api)}
+        />
+      </main>
     </>
   );
 };

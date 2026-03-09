@@ -1,4 +1,5 @@
 import { formatCellValue } from "../utils/format-cell-value";
+import ReactMarkdown from "react-markdown";
 
 export const TableBody = ({ data = [], columns = [] }) => {
   return (
@@ -8,7 +9,13 @@ export const TableBody = ({ data = [], columns = [] }) => {
           {columns.map((column) => {
             const value = formatCellValue(row, column.field);
 
-            return <td key={column.field}>{value ?? <span>No data</span>}</td>;
+            return (
+              <td key={column.field}>
+                {column.type === "markdown" ?
+                  <ReactMarkdown>{value}</ReactMarkdown>
+                : value}
+              </td>
+            );
           })}
         </tr>
       ))}

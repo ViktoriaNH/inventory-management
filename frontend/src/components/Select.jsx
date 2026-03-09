@@ -4,7 +4,7 @@ export const Select = ({ name, label, options = [], required }) => {
   const { register } = useFormContext();
 
   return (
-    <div>
+    <div className="mb-3">
       <label className="form-label">{label}</label>
       <select
         className="form-select"
