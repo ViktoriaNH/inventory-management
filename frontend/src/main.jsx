@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { StrictMode } from "react";
@@ -11,13 +12,12 @@ import { QueryClientProvider } from "@tanstack/react-query";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
-
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <StrictMode>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <App />
-         <ReactQueryDevtools initialIsOpen={false} />
+        <ReactQueryDevtools initialIsOpen={false} />
       </ClerkProvider>
     </StrictMode>
   </QueryClientProvider>,

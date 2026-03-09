@@ -6,20 +6,20 @@ import { useInventories } from "../hooks/useInventories";
 
 
 export const InventoryTable = ({ title, queryKey, fetch }) => {
-  const { data, isPending, isError } = useInventories(queryKey, fetch);
+  const { data, isError, isPending } = useInventories(queryKey, fetch);
 
-  // TODO: плохо, надо что-то с этим сделать 
+    // TODO: плохо, надо что-то с этим сделать
 
-  if (isPending) {
-    return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "secondary");
-  }
-  if (isError) {
-    return showAlert(ALERT_MESSAGES.FETCH_ERROR);
-  }
-
-  if (!data.length || data.length === 0) {
-    return <p>{ALERT_MESSAGES.NO_INVENTORIES}</p>;
-  }
+   if (isPending) {
+      return showAlert(ALERT_MESSAGES.LOADING_INVENTORIES, "secondary");
+    }
+    if (isError) {
+      return showAlert(ALERT_MESSAGES.FETCH_ERROR);
+    }
+  
+    if (!data?.length) {
+      return <p>{ALERT_MESSAGES.NO_INVENTORIES}</p>;
+    }
 
   return (
     <div className="w-100">

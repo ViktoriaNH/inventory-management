@@ -1,7 +1,9 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Button } from "../components/Button.jsx";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { MENU_ITEMS } from "../data/menu-items.js";
+import { PATHS } from "../data/paths.js";
+import { BurgerButton } from "../components/BurgerButton.jsx";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -17,30 +19,48 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-secondary-subtle d-flex justify-content-between align-items-center px-5 py-3 mb-4 w-100">
-      <h1 className="h5">
-        <i className="bi bi-box2-heart-fill me-2"></i>
-        Inventory Management
-      </h1>
+    <nav className="navbar navbar-expand-lg bg-secondary-subtle px-1 px-sm-4 py-3 mb-4 w-100">
+      <div className="container-fluid ">
+        <Link
+          to={PATHS.MAIN_PAGE}
+          className="navbar-brand d-flex align-items-center fw-semibold me-5 fs-6 fs-md-3"
+        >
+          <i className="bi bi-box2-heart-fill me-2"></i>
+          <span className="">Inventory Management</span>
+        </Link>
+        <BurgerButton />
 
-      <nav className="navbar-expand px-3">
-        <ul className="navbar-nav d-flex align-items-center ">
-          {MENU_ITEMS.map((item) => (
-            <li className="nav-item mx-3" key={item.id}>
-              <NavLink
-                className="nav-link btn btn-sm btn-light border-0 p-2"
-                to={item.link}
-              >
-                {item.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <div className="collapse navbar-collapse" id="mainNavbar">
+          <ul className="navbar-nav me-auto">
+            {MENU_ITEMS.map((item) => (
+              <li className="nav-item" key={item.id}>
+                <NavLink className="nav-link" to={item.link}>
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
 
-      {isSignedIn && <Button text="Logout" onClick={handleLogout} />}
+          <form className="d-flex me-3" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
 
-      {!isSignedIn && <Button text="Login" onClick={toSignIn} />}
-    </header>
+            <Button text="Search" type="submit" />
+          </form>
+
+          {isSignedIn ?
+            <Button
+              text="Logout"
+              onClick={handleLogout}
+              className="mt-3 mt-lg-0"
+            />
+          : <Button text="Login" onClick={toSignIn} className="mt-3 mt-lg-0" />}
+        </div>
+      </div>
+    </nav>
   );
 };

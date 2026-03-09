@@ -1,5 +1,5 @@
 import { fetchMyInventory } from "../api/inventory-api";
-import { QUERY_KEYS } from "../data/query-keys";
+import { QUERY_KEYS } from "../data/queries";
 import { SECTION_TITLE } from "../data/section-title";
 import { useApi } from "../hooks/useApi";
 import { Header } from "../layouts/Header";
