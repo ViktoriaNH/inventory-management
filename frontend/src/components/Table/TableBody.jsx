@@ -1,4 +1,4 @@
-import { formatCellValue } from "../utils/format-cell-value";
+import { formatCellValue } from "../../utils/format-cell-value";
 import ReactMarkdown from "react-markdown";
 
 export const TableBody = ({ data = [], columns = [] }) => {

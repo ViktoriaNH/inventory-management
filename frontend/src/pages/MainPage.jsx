@@ -14,7 +14,7 @@ export const MainPage = () => {
   return (
     <>
       <Header />
-      <main className="container p-1 d-flex flex-column flex-md-row justify-content-center gap-5">
+      <main className="container p-1 d-flex flex-column flex-xl-row justify-content-center gap-5">
           <InventoryTable
             title={SECTION_TITLE.TOP_INVENTORIES}
             queryKey={QUERY_KEYS.inventories.top}

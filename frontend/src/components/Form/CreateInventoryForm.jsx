@@ -1,19 +1,21 @@
 import { Input } from "./Input";
-import { FormWrapper } from "../layouts/FormWrapper";
-import { Button } from "./Button";
-import { ALERT_MESSAGES } from "../data/alert-messages";
+import { FormWrapper } from "../../layouts/FormWrapper";
+import { Button } from "../Button";
+import { ALERT_MESSAGES } from "../../data/alert-messages";
 import { Checkbox } from "./Checkbox";
-import { Select } from "./Select";
-import { useCategories } from "../hooks/useCategories";
-import { useCreateInventory } from "../hooks/useCreateInventory";
-import { showAlert } from "../helpers/show-alert";
+import { Select } from './Select'
+import { useCategories } from "../../hooks/useCategories";
+import { useCreateInventory } from "../../hooks/useCreateInventory";
+import { showAlert } from "../../helpers/show-alert";
 import { useState } from "react";
-import { MarkdownEditor } from "./MarkdownEditor";
+import { MarkdownEditor } from "../MarkdownEditor";
+import { useToast } from '../../hooks/useToast'
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
   const { createInventory, isError, isSuccess } = useCreateInventory();
   const [description, setDescription] = useState("");
+  const { showToast } = useToast();
 
   const handleCreateInventory = (formData, reset) => {
     createInventory(
@@ -32,17 +34,14 @@ export const CreateInventoryForm = () => {
 
       {isError && showAlert(ALERT_MESSAGES.FETCH_ERROR)}
 
-      {isSuccess && showAlert(ALERT_MESSAGES.CREATE_INVENTORIES, "success")}
+      {isSuccess && showToast(ALERT_MESSAGES.CREATE_INVENTORIES)}
 
       <FormWrapper onSubmit={handleCreateInventory}>
         <div className="d-flex flex-column gap-2">
           <Input name="title" label="Title" required />
 
-   
           <div>
-            <label className="form-label">
-              Description
-            </label>
+            <label className="form-label">Description</label>
 
             <MarkdownEditor value={description} onChange={setDescription} />
           </div>
@@ -54,9 +53,7 @@ export const CreateInventoryForm = () => {
             required
           />
 
-          {/* <Input name="imgUrl" label="Image" /> */}
-
-          <Checkbox name="isPublic" label="Public inventory"  />
+          <Checkbox name="isPublic" label="Public inventory" />
         </div>
         <Button type="submit" className="mt-3" text="Create" />
       </FormWrapper>

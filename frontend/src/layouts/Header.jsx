@@ -19,14 +19,14 @@ export const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-secondary-subtle px-1 px-sm-4 py-3 mb-4 w-100">
+    <nav className="navbar navbar-expand-lg bg-secondary-subtle px-1 px-sm-4 py-2 mb-4 w-100">
       <div className="container-fluid ">
         <Link
           to={PATHS.MAIN_PAGE}
-          className="navbar-brand d-flex align-items-center fw-semibold me-5 fs-6 fs-md-3"
+          className="navbar-brand d-flex align-items-center fw-semibold me-5"
         >
-          <i className="bi bi-box2-heart-fill me-2"></i>
-          <span className="">Inventory Management</span>
+          <i className="bi bi-box2-heart-fill me-2 fs-1"></i>
+          <span className="d-none d-md-inline">Inventory Management</span>
         </Link>
         <BurgerButton />
 
