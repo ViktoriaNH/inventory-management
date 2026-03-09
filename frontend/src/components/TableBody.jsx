@@ -10,7 +10,7 @@ export const TableBody = ({ data = [], columns = [] }) => {
             const value = formatCellValue(row, column.field);
 
             return (
-              <td key={column.field}>
+              <td className="align-middle" key={column.field}>
                 {column.type === "markdown" ?
                   <ReactMarkdown>{value}</ReactMarkdown>
                 : value}

@@ -53,7 +53,7 @@ export const getMyInventories = async (userId) => {
       creatorId: userId,
     },
     orderBy: {
-      creatsdAt: 'desc'
+      createdAt: 'desc'
     }
   });
   return inventories;
