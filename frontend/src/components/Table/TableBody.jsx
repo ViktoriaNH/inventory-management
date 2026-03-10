@@ -10,7 +10,11 @@ export const TableBody = ({ data = [], columns = [] }) => {
             const value = formatCellValue(row, column.field);
 
             return (
-              <td className="align-middle" key={column.field}>
+              <td
+                className="align-middle"
+                style={{ maxWidth: 0 }}
+                key={column.field}
+              >
                 {renderCellValue(row, column, value)}
               </td>
             );
