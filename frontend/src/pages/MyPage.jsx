@@ -1,4 +1,5 @@
 import { fetchMyInventory } from "../api/inventory-api";
+import { MYPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/queries";
 import { SECTION_TITLE } from "../data/section-title";
 import { useApi } from "../hooks/useApi";
@@ -16,6 +17,7 @@ export const MyPage = () => {
           title={SECTION_TITLE.MY_INVENTORIES}
           queryKey={QUERY_KEYS.inventories.my}
           fetch={() => fetchMyInventory(api)}
+          columns={MYPAGE_INVENTORIES_COLUMNS}
         />
       </main>
     </>

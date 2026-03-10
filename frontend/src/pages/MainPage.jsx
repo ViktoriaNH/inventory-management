@@ -2,6 +2,7 @@ import {
   fetchLatestInventories,
   fetchTopInventories,
 } from "../api/inventory-api";
+import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/queries";
 import { SECTION_TITLE } from "../data/section-title";
 import { useApi } from "../hooks/useApi";
@@ -15,16 +16,18 @@ export const MainPage = () => {
     <>
       <Header />
       <main className="container p-1 d-flex flex-column flex-xl-row justify-content-center gap-5">
-          <InventoryTable
-            title={SECTION_TITLE.TOP_INVENTORIES}
-            queryKey={QUERY_KEYS.inventories.top}
-            fetch={() => fetchTopInventories(api)}
-          />
-          <InventoryTable
-            title={SECTION_TITLE.LATEST_INVENTORIES}
-            queryKey={QUERY_KEYS.inventories.latest}
-            fetch={() => fetchLatestInventories(api)}
-          />
+        <InventoryTable
+          title={SECTION_TITLE.TOP_INVENTORIES}
+          queryKey={QUERY_KEYS.inventories.top}
+          fetch={() => fetchTopInventories(api)}
+          columns={MAINPAGE_INVENTORIES_COLUMNS}
+        />
+        <InventoryTable
+          title={SECTION_TITLE.LATEST_INVENTORIES}
+          queryKey={QUERY_KEYS.inventories.latest}
+          fetch={() => fetchLatestInventories(api)}
+          columns={MAINPAGE_INVENTORIES_COLUMNS}
+        />
       </main>
     </>
   );
