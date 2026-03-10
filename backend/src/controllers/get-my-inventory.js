@@ -1,5 +1,5 @@
 import { checkUserInDB } from "../helpers/check-user-in-db.js";
-import { handleError } from "../helpers/handle-error.js";
+import { handleError } from "../utils/handle-error.js";
 import { getMyInventories } from "../services/inventory.js";
 
 export const getMyInventoryController = async (req, res) => {

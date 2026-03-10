@@ -1,4 +1,4 @@
-import { handleError } from "../helpers/handle-error.js";
+import { handleError } from "../utils/handle-error.js";
 import { getTopInventories } from "../services/inventory.js";
 
 export const getTopInventoriesController = async (req, res) => {

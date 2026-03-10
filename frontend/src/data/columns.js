@@ -6,6 +6,5 @@ export const MAINPAGE_INVENTORIES_COLUMNS = [
 
 export const MYPAGE_INVENTORIES_COLUMNS = [
   { label: "Title", field: "title", type: "text" },
-  { label: "Description", field: "description", type: "markdown" },
-  { label: "Created at", field: "createdAt", type: "date" },
+  { label: "Description", field: "description", type: "markdown" }
 ];

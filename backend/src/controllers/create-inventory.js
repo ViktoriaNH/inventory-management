@@ -1,4 +1,4 @@
-import { handleError } from "../helpers/handle-error.js";
+import { handleError } from "../utils/handle-error.js";
 import { createInventory } from "../services/inventory.js";
 import { formInventoryData } from "../helpers/from-inventory-data.js";
 import { validateInventoryData } from "../helpers/validate-inventory-data.js";

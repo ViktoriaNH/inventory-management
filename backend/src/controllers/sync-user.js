@@ -1,5 +1,5 @@
 import { getUserFromClerk } from "../helpers/get-user-from-clerk.js";
-import { handleError } from "../helpers/handle-error.js";
+import { handleError } from "../utils/handle-error.js";
 import { createNewUser } from "../helpers/create-new-user.js";
 
 export const syncUserController = async (req, res) => {

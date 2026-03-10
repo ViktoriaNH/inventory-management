@@ -1,4 +1,4 @@
-import { handleError } from "../helpers/handle-error.js";
+import { handleError } from "../utils/handle-error.js";
 import { getCategories } from "../services/category.js";
 
 export const getCategoriesController = async (req, res) => {
