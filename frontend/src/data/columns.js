@@ -7,6 +7,6 @@ export const MAINPAGE_INVENTORIES_COLUMNS = [
 ];
 
 export const MYPAGE_INVENTORIES_COLUMNS = [
-  { label: "Title", field: "title", type: "link" },
+  { label: "Title", field: "title", type: "link", getLink: createInventoryLink },
   { label: "Description", field: "description", type: "markdown" }
 ];

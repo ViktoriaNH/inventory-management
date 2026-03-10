@@ -8,9 +8,24 @@ export const TruncatedMarkdown = ({ content, lines = 3 }) => {
         WebkitLineClamp: lines,
         WebkitBoxOrient: "vertical",
         overflow: "hidden",
+        fontSize: "0.9rem",
+        lineHeight: "1.4",
       }}
+      title={content}
     >
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          h1: ({ children }) => <span>{children} </span>,
+          h2: ({ children }) => <span>{children} </span>,
+          h3: ({ children }) => <span>{children} </span>,
+          p: ({ children }) => <span>{children} </span>,
+          li: ({ children }) => <span>{children} </span>,
+          ul: ({ children }) => <span>{children}</span>,
+          ol: ({ children }) => <span>{children}</span>,
+        }}
+      >
+        {content}
+      </ReactMarkdown>
     </div>
   );
 };
