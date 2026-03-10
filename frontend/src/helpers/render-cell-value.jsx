@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import { TruncatedMarkdown } from "../components/TruncateMarkdown";
 
 export const renderCellValue = (row, column, value) => {
   return (
@@ -9,7 +10,7 @@ export const renderCellValue = (row, column, value) => {
       </Link>
     : column.type === "markdown" ?
       <div className="text-truncate">
-        <ReactMarkdown>{value}</ReactMarkdown>
+        <TruncatedMarkdown content={value} lines={2} />
       </div>
     : value
   );
