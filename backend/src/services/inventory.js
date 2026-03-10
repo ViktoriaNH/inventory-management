@@ -52,6 +52,9 @@ export const getMyInventories = async (userId) => {
     where: {
       creatorId: userId,
     },
+    select: {
+      id: true,
+    },
     orderBy: {
       createdAt: 'desc'
     }

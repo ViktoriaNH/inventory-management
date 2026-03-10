@@ -39,7 +39,7 @@ export const CreateInventoryForm = () => {
 
           <div>
             <label className="form-label">Description</label>
-            <MarkdownEditor value={description} onChange={setDescription} />
+            <MarkdownEditor value={description} onChange={setDescription}  />
           </div>
 
           <Select
