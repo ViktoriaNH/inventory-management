@@ -9,10 +9,8 @@ export const renderCellValue = (row, column, value) => {
         {value}
       </Link>
     : column.type === "markdown" ?
-      <div className="text-truncate">
-        <div style={{ minWidth: "240px" }}>
-          <TruncatedMarkdown content={value} lines={2} />
-        </div>
+      <div style={{ minWidth: "240px" }}>
+        <TruncatedMarkdown content={value} lines={2} />
       </div>
     : value
   );
