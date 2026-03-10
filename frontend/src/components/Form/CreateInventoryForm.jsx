@@ -7,15 +7,13 @@ import { Select } from "./Select";
 import { useCategories } from "../../hooks/useCategories";
 import { useCreateInventory } from "../../hooks/useCreateInventory";
 import { showAlert } from "../../helpers/show-alert";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MarkdownEditor } from "../MarkdownEditor";
-import { useToast } from "../../hooks/useToast";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
-  const { createInventory, isError, isSuccess } = useCreateInventory();
+  const { createInventory, isError } = useCreateInventory();
   const [description, setDescription] = useState("");
-  const { showToast } = useToast();
 
   const handleCreateInventory = (formData, reset) => {
     createInventory(
@@ -27,12 +25,6 @@ export const CreateInventoryForm = () => {
       },
     );
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      showToast(ALERT_MESSAGES.CREATE_INVENTORIES);
-    }
-  }, [isSuccess, showToast]);
 
   return (
     <section>
