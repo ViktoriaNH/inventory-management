@@ -1,4 +1,4 @@
-import { UserTable } from "../components/TableUserTable";
+import { UserTable } from "../components/Table/UserTable.jsx";
 import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { useInventories } from "../hooks/useInventories";
 import { renderQueryState } from "../utils/render-query-state.jsx";
