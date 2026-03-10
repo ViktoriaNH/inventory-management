@@ -9,7 +9,7 @@ export const renderCellValue = (row, column, value) => {
         {value}
       </Link>
     : column.type === "markdown" ?
-      <TruncatedMarkdown content={value} lines={2} />
+      <TruncatedMarkdown content={value}/>
     : value
   );
 };

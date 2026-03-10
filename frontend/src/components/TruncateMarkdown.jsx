@@ -1,12 +1,16 @@
-import TruncateMarkup from "react-truncate-markup";
 import ReactMarkdown from "react-markdown";
 
-export const TruncatedMarkdown = ({ content, lines }) => {
+export const TruncatedMarkdown = ({ content, lines = 3 }) => {
   return (
-    <TruncateMarkup lines={lines}>
-      <div>
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </div>
-    </TruncateMarkup>
+    <div
+      style={{
+        display: "-webkit-box",
+        WebkitLineClamp: lines,
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden",
+      }}
+    >
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </div>
   );
 };
