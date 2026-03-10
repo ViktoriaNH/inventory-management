@@ -21,6 +21,7 @@ export const CreateInventoryForm = () => {
       {
         onSuccess: () => {
           reset();
+          setDescription('');
         },
       },
     );
