@@ -3,13 +3,13 @@ import { FormWrapper } from "../../layouts/FormWrapper";
 import { Button } from "../Button";
 import { ALERT_MESSAGES } from "../../data/alert-messages";
 import { Checkbox } from "./Checkbox";
-import { Select } from './Select'
+import { Select } from "./Select";
 import { useCategories } from "../../hooks/useCategories";
 import { useCreateInventory } from "../../hooks/useCreateInventory";
 import { showAlert } from "../../helpers/show-alert";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MarkdownEditor } from "../MarkdownEditor";
-import { useToast } from '../../hooks/useToast'
+import { useToast } from "../../hooks/useToast";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
@@ -28,13 +28,17 @@ export const CreateInventoryForm = () => {
     );
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      showToast(ALERT_MESSAGES.CREATE_INVENTORIES);
+    }
+  }, [isSuccess, showToast]);
+
   return (
     <section>
       <h1 className="text-center">Create inventory</h1>
 
       {isError && showAlert(ALERT_MESSAGES.FETCH_ERROR)}
-
-      {isSuccess && showToast(ALERT_MESSAGES.CREATE_INVENTORIES)}
 
       <FormWrapper onSubmit={handleCreateInventory}>
         <div className="d-flex flex-column gap-2">
@@ -42,7 +46,6 @@ export const CreateInventoryForm = () => {
 
           <div>
             <label className="form-label">Description</label>
-
             <MarkdownEditor value={description} onChange={setDescription} />
           </div>
 
