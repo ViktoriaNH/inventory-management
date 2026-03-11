@@ -23,23 +23,25 @@ export const InventoryPage = () => {
   const queryState = renderQueryState({ data, isPending, isError });
 
   return (
-    <Header>
-      <Tabs
-        id="uncontrolled-tab-example"
-        className="mb-3"
-        defaultActiveKey={ACTIVE_TAB}
-      >
-        {TABS_LABELS.map((tab) => {
-          const Component = tab.component;
-          return (
-            <Tab key={tab.id} eventKey={tab.id} title={tab.title}>
-              {queryState ?
-                queryState
-              : <Component inventory={data} inventoryId={inventoryId} />}
-            </Tab>
-          );
-        })}
-      </Tabs>
-    </Header>
+    <>
+      <Header>
+        <Tabs
+          id="uncontrolled-tab-example"
+          className="mb-3"
+          defaultActiveKey={ACTIVE_TAB}
+        >
+          {TABS_LABELS.map((tab) => {
+            const Component = tab.component;
+            return (
+              <Tab key={tab.id} eventKey={tab.id} title={tab.title}>
+                {queryState ?
+                  queryState
+                : <Component inventory={data} inventoryId={inventoryId} />}
+              </Tab>
+            );
+          })}
+        </Tabs>
+      </Header>
+    </>
   );
 };
