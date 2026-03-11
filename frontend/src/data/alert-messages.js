@@ -1,6 +1,6 @@
 export const ALERT_MESSAGES = {
   FETCH_ERROR: "Something went wrong, please try again later",
-  NO_INVENTORIES: "No information found",
-  LOADING_DATA: "Loading data",
+  NO_INVENTORIES: "The inventory list is empty",
+  LOADING_DATA: "Loading inventories",
   CREATE_INVENTORIES: "The inventory was created",
 };

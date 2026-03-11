@@ -1,16 +1,16 @@
 import { ALERT_MESSAGES } from "../data/alert-messages";
 import { showAlert } from "../helpers/show-alert";
 
-export const renderQueryState = ({data, isPending, isError}) => {
+export const renderQueryState = ({ data, isPending, isError }) => {
   if (isPending) {
     return showAlert(ALERT_MESSAGES.LOADING_DATA, "secondary");
   }
-  if (isError) {
+  if (isError || !data) {
     return showAlert(ALERT_MESSAGES.FETCH_ERROR);
   }
 
-  if (!data?.length) {
-    return showAlert(ALERT_MESSAGES.NO_INVENTORIES, 'light')
+  if (Object.keys(data).length === 0) {
+    return showAlert(ALERT_MESSAGES.NO_INVENTORIES, "light");
   }
 
   return null;
