@@ -56,8 +56,8 @@ export const getMyInventories = async (userId) => {
       id: true,
     },
     orderBy: {
-      createdAt: 'desc'
-    }
+      createdAt: "desc",
+    },
   });
   return inventories;
 };
@@ -78,4 +78,20 @@ export const createInventory = async (inventoryData) => {
   });
 
   return inventory;
+};
+
+export const getAnyInventory = async (id) => {
+  const inventories = await prisma.inventory.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      isPublic: true,
+      createdAt: true,
+      category: { select: { name: true } },
+      creator: { select: { name: true } },
+    },
+  });
+  return inventories;
 };
