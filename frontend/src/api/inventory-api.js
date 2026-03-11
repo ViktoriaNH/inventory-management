@@ -15,8 +15,8 @@ export const createInventory = async (api, formData) => {
 
 export const fetchMyInventory = async (api) => {
   return api("/api/inventories/my");
-}
+};
 
-export const fetchAnyInventory = async (api, id) => { 
-  return api(`/api/inventories/${id}`)
-}
+export const fetchAnyInventory = async (api, inventoryId) => {
+  return api(`/api/inventories/${inventoryId}`);
+};

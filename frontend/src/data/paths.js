@@ -4,5 +4,6 @@ export const PATHS = {
     MAIN_PAGE: '/',
     CREATE_INVENTORY: '/create-inventory',
     MY_PAGE: '/my-page',
+    INVENTORY_PAGE: '/inventories/:inventoryId',
 
 }

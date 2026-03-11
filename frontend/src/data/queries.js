@@ -6,5 +6,6 @@ export const QUERY_KEYS = {
     my: ["inventories", "my"],
     top: ["inventories", "top"],
     latest: ["inventories", "latest"],
+    byId: (inventoryId) => ['inventories', 'byId', inventoryId ]
   },
 };

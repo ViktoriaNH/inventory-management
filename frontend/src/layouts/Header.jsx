@@ -4,6 +4,7 @@ import { useAuth, useUser } from "@clerk/clerk-react";
 import { MENU_ITEMS } from "../data/menu-items.js";
 import { PATHS } from "../data/paths.js";
 import { BurgerButton } from "../components/BurgerButton.jsx";
+import { Logo } from "../components/Logo.jsx";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -19,14 +20,14 @@ export const Header = () => {
   };
 
   return (
+    // TODO: куча, надо повыносить все
     <nav className="navbar navbar-expand-lg bg-secondary-subtle px-1 px-sm-4 py-2 mb-4 w-100">
       <div className="container-fluid ">
         <Link
           to={PATHS.MAIN_PAGE}
           className="navbar-brand d-flex align-items-center fw-semibold me-5"
         >
-          <i className="bi bi-box2-heart-fill me-2 fs-1"></i>
-          <span className="d-none d-md-inline">Inventory Management</span>
+          <Logo />
         </Link>
         <BurgerButton />
 
