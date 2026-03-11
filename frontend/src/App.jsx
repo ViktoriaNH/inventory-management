@@ -33,7 +33,7 @@ export const App = () => {
         />
         <Route path={PATHS.CREATE_INVENTORY} element={<CreateInventory />} />
         <Route path={PATHS.MY_PAGE} element={<MyPage />} />
-           <Route path={PATHS.MY_PAGE} element={<InventoryPage />} />
+        <Route path={PATHS.INVENTORY_PAGE} element={<InventoryPage />} />
       </Routes>
     </BrowserRouter>
   );
