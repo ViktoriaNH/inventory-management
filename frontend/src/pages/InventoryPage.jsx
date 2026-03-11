@@ -37,7 +37,7 @@ export const InventoryPage = () => {
               <Tab key={tab.id} eventKey={tab.id} title={tab.title}>
                 {queryState ?
                   queryState
-                : <Component inventory={data} inventoryId={inventoryId} />}
+                : <Component data={data} inventoryId={inventoryId} />}
               </Tab>
             );
           })}
