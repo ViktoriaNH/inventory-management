@@ -12,6 +12,6 @@ router.get("/top", getTopInventoriesController);
 router.get("/latest", getLatestInventoriesController);
 router.get("/my", getMyInventoryController);
 router.post("/create", createInventoryController);
-router.post("/:inventoryId", getInventoryByIdController);
+router.get("/:inventoryId", getInventoryByIdController);
 
 export default router;
