@@ -1,5 +1,5 @@
-import { getInventoryById } from "../services/inventory";
-import { handleError } from "../utils/handle-error";
+import { getInventoryById } from "../services/inventory.js";
+import { handleError } from "../utils/handle-error.js";
 
 export const getInventoryByIdController = async (req, res) => {
   const { id } = req.params();
