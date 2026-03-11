@@ -5,7 +5,7 @@ export const CreateInventory = () => {
   return (
     <>
       <Header />
-      <main className="container p-1 pb-5">
+      <main className="container px-3 px-sm-4 pb-5">
         <CreateInventoryForm />
       </main>
     </>

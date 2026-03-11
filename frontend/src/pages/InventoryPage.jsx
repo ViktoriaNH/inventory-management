@@ -25,7 +25,7 @@ export const InventoryPage = () => {
   return (
     <>
       <Header />
-      <main className="container">
+      <main className="container px-3 px-sm-4">
         <Tabs
           id="uncontrolled-tab-example"
           className='justify-content-md-center flex-wrap mb-3'

@@ -12,7 +12,7 @@ export const MyPage = () => {
   return (
     <>
       <Header />
-      <main className="container">
+      <main className="container px-3 px-sm-4">
         <InventoryTable
           title={SECTION_LABELS.MY_INVENTORIES}
           queryKey={QUERY_KEYS.inventories.my}
