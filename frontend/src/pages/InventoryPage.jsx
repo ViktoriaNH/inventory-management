@@ -24,7 +24,8 @@ export const InventoryPage = () => {
 
   return (
     <>
-      <Header>
+      <Header />
+      <main>
         <Tabs
           id="uncontrolled-tab-example"
           className="mb-3"
@@ -41,7 +42,7 @@ export const InventoryPage = () => {
             );
           })}
         </Tabs>
-      </Header>
+      </main>
     </>
   );
 };
