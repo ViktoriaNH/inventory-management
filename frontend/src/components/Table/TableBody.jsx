@@ -1,5 +1,6 @@
-import { formatCellValue } from "../../utils/format-cell-value";
+
 import { renderCellValue } from "../../helpers/render-cell-value";
+import { formatNestedValue } from "../../utils/format-nested-value";
 
 export const TableBody = ({ data = [], columns = [] }) => {
   return (
@@ -7,7 +8,7 @@ export const TableBody = ({ data = [], columns = [] }) => {
       {data.map((row) => (
         <tr key={row.id}>
           {columns.map((column) => {
-            const value = formatCellValue(row, column.field);
+            const value = formatNestedValue(row, column.field);
 
             return (
               <td

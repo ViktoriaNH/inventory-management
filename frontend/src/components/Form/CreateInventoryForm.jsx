@@ -8,7 +8,7 @@ import { useCategories } from "../../hooks/useCategories";
 import { useCreateInventory } from "../../hooks/useCreateInventory";
 import { showAlert } from "../../helpers/show-alert";
 import { useState } from "react";
-import { MarkdownEditor } from "../MarkdownEditor";
+import { MarkdownEditor } from "../Markdown/MarkdownEditor";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
@@ -21,7 +21,7 @@ export const CreateInventoryForm = () => {
       {
         onSuccess: () => {
           reset();
-          setDescription('');
+          setDescription("");
         },
       },
     );
@@ -39,7 +39,7 @@ export const CreateInventoryForm = () => {
 
           <div>
             <label className="form-label">Description</label>
-            <MarkdownEditor value={description} onChange={setDescription}  />
+            <MarkdownEditor value={description} onChange={setDescription} />
           </div>
 
           <Select

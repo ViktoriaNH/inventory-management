@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   MarkdownPreview,
-} from "../components/MarkdownPreview.jsx";
+} from "../components/Markdown/MarkdownPreview.jsx";
 
 export const renderCellValue = (row, column, value) => {
   return (

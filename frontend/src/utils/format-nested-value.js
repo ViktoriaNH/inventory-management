@@ -1,4 +1,4 @@
-export const formatCellValue = (row, field) => {
+export const formatNestedValue = (row, field) => {
   const value = row[field];
 
   if (typeof value === "object") {
