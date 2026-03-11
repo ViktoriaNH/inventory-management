@@ -25,16 +25,18 @@ export const InventoryPage = () => {
   return (
     <>
       <Header />
-      <main className="container p-1">
+      <main className="container">
         <Tabs
           id="uncontrolled-tab-example"
           className='justify-content-md-center flex-wrap mb-3'
           defaultActiveKey={ACTIVE_TAB}
+          mountOnEnter
+          unmountOnExit
         >
           {TABS_LABELS.map((tab) => {
             const Component = tab.component;
             return (
-              <Tab tabClassName="text-dark fw-semibold" key={tab.id} eventKey={tab.id} title={tab.title}>
+              <Tab tabClassName="text-secondary link-dark" key={tab.id} eventKey={tab.id} title={tab.title} >
                 {queryState ?
                   queryState
                 : <Component data={data} inventoryId={inventoryId} />}

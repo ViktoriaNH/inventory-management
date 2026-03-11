@@ -4,14 +4,14 @@ import { formatDate } from "../utils/format-date";
 import { InventoryField } from "../components/InventoryField";
 
 export const InventorySettings = ({ data }) => {
-  const status = data.isPublic ? "public inventory" : "private inventory";
+  const status = data.isPublic ? "Public inventory" : "Private inventory";
 
   const date = formatDate(data.createdAt);
 
   return (
     <section>
-      <header>
-        <h1>{data.title}</h1>
+      <header className="mb-1">
+        <h3 className="mb-0">{data.title}</h3>
         <span>{status}</span>
       </header>
 
