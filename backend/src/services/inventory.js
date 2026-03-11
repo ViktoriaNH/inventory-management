@@ -64,7 +64,7 @@ export const getMyInventories = async (userId) => {
   return inventories;
 };
 
-export const getAnyInventory = async (id) => {
+export const getInventoryById = async (id) => {
   const inventories = await prisma.inventory.findUnique({
     where: { id },
     select: {

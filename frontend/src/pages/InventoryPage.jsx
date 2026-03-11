@@ -3,10 +3,11 @@ import Tabs from "react-bootstrap/Tabs";
 import { TABS_LABELS } from "../data/labels";
 import { useParams } from "react-router-dom";
 import { useApi } from "../hooks/useApi";
-import { fetchAnyInventory } from "../api/inventory-api";
+
 import { useInventories } from "../hooks/useInventories";
 import { renderQueryState } from "../utils/render-query-state";
 import { QUERY_KEYS } from "../data/queries";
+import { fetchInventoryById } from "../api/inventory-api";
 
 export const InventoryPage = () => {
   const { inventoryId } = useParams();
@@ -15,9 +16,9 @@ export const InventoryPage = () => {
   const ACTIVE_TAB = "settings";
 
   const queryKey = QUERY_KEYS.inventories.byId(inventoryId);
-  const fetchInventoryById = () => fetchAnyInventory(api, inventoryId);
+  const fetchInventory = () => fetchInventoryById(api, inventoryId);
 
-  const { data, isError, isPending } = useInventories(queryKey, fetchInventoryById);
+  const { data, isError, isPending } = useInventories(queryKey, fetchInventory);
 
   const queryState = renderQueryState({ data, isPending, isError });
 
@@ -31,7 +32,9 @@ export const InventoryPage = () => {
         const Component = tab.component;
         return (
           <Tab key={tab.id} eventKey={tab.id} title={tab.title}>
-            {queryState ? queryState : <Component inventory={data} inventoryId={inventoryId} />}
+            {queryState ?
+              queryState
+            : <Component inventory={data} inventoryId={inventoryId} />}
           </Tab>
         );
       })}

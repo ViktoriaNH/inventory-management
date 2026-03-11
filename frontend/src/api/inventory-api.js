@@ -17,6 +17,6 @@ export const fetchMyInventory = async (api) => {
   return api("/api/inventories/my");
 };
 
-export const fetchAnyInventory = async (api, inventoryId) => {
+export const fetchInventoryById = async (api, inventoryId) => {
   return api(`/api/inventories/${inventoryId}`);
 };
