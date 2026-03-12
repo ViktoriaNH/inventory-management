@@ -3,8 +3,8 @@ export const TableHeader = ({ columns = [], selectable }) => {
     <thead>
       <tr>
         {selectable && (
-          <th>
-            <input type="checkbox" className="form-check-input" />
+          <th className='text-center align-middle"'>
+            <input type="checkbox" className="form-check-input border-dark" />
           </th>
         )}
         {columns.map((column) => (

@@ -7,9 +7,9 @@ export const TableBody = ({ data = [], columns = [], selectable }) => {
       {data.map((row) => (
         <tr key={row.id}>
           {selectable && (
-            <tr>
-              <input type="checkbox" className="form-check-input" />
-            </tr>
+            <td className="text-center align-middle">
+              <input type="checkbox" className="form-check-input border-dark" />
+            </td>
           )}
           {columns.map((column) => {
             const value = formatNestedValue(row, column.field);
