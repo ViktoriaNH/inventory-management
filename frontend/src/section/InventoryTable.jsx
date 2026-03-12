@@ -9,6 +9,7 @@ export const InventoryTable = ({
   fetch,
   columns,
   selectable = false,
+  toolbar,
 }) => {
   const { data, isError, isPending } = useInventories(queryKey, fetch);
 
@@ -26,7 +27,8 @@ export const InventoryTable = ({
   return (
     <div className="w-100">
       <h2 className="h2 mb-3 text-center">{title}</h2>
-
+      {toolbar}
+      
       {queryState ?
         queryState
       : <UserTable
@@ -42,16 +44,3 @@ export const InventoryTable = ({
     </div>
   );
 };
-// export const InventoryTable = ({ title, queryKey, fetch, columns, selectable = false}) => {
-//   const { data, isError, isPending } = useInventories(queryKey, fetch);
-
-//   const queryState = renderQueryState({ data, isPending, isError });
-
-//   return (
-//     <div className="w-100">
-//       <h2 className="h2 mb-3 text-center">{title}</h2>
-
-//       {queryState ? queryState : <UserTable selectable={selectable} columns={columns} data={data} />}
-//     </div>
-//   );
-// };

@@ -1,4 +1,5 @@
 import { fetchMyInventory } from "../api/inventory-api";
+import Toolbar from "../components/Toolbar";
 import { MYPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { SECTION_LABELS } from "../data/labels";
 import { QUERY_KEYS } from "../data/queries";
@@ -15,7 +16,9 @@ export const MyPage = () => {
       <main className="container px-3 px-sm-4">
         <InventoryTable
           title={SECTION_LABELS.MY_INVENTORIES}
+          toolbar={<Toolbar />}
           queryKey={QUERY_KEYS.inventories.my}
+          
           fetch={() => fetchMyInventory(api)}
           columns={MYPAGE_INVENTORIES_COLUMNS}
           selectable
