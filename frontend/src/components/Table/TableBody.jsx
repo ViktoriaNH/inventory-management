@@ -6,8 +6,8 @@ export const TableBody = ({
   data = [],
   columns = [],
   selectable,
-  // selectedInventories = [],
-  // setSelectedInventories,
+  onChange,
+  selectedInventories
 }) => {
 
 
@@ -16,8 +16,8 @@ export const TableBody = ({
       {data.map((row) => (
         <tr key={row.id}>
           {selectable && (
-            <td className="text-center align-middle">
-             <Checkbox />
+            <td className="align-middle">
+              <Checkbox isChecked={selectedInventories.includes(row.id)} onChange={() => onChange(row.id)} />
             </td>
           )}
           {columns.map((column) => {
