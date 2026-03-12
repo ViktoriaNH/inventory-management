@@ -1,18 +1,19 @@
 import { UserTable } from "../components/Table/UserTable.jsx";
-import { useInventories } from "../hooks/useInventories";
 import { renderQueryState } from "../utils/render-query-state.jsx";
 
 export const InventoryTable = ({
   title,
-  queryKey,
-  fetch,
   columns,
   selectable = false,
+  isAllSelected,
+  allInventoriesSelected,
+  toggleInventory,
+  toggleAllInventories,
   selectedInventories = [],
-  setSelectedInventories,
+  data,
+  isPending,
+  isError,
 }) => {
-  const { data, isError, isPending } = useInventories(queryKey, fetch);
-
   const queryState = renderQueryState({ data, isPending, isError });
 
   return (
@@ -25,8 +26,11 @@ export const InventoryTable = ({
           selectable={selectable}
           columns={columns}
           data={data}
+          isAllSelected={isAllSelected}
+          allInventoriesSelected={allInventoriesSelected}
+          toggleInventory={toggleInventory}
+          toggleAllInventories={toggleAllInventories}
           selectedInventories={selectedInventories}
-          setSelectedInventories={setSelectedInventories}
         />
       }
     </div>

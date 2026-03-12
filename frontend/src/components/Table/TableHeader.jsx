@@ -3,18 +3,15 @@ import { Checkbox } from "../Checkbox";
 export const TableHeader = ({
   columns = [],
   selectable,
+  onChange,
   isChecked,
-  onChange
 }) => {
-
-
-
   return (
     <thead>
       <tr>
         {selectable && (
-          <th className='align-middle'>
-            <Checkbox  isChecked={isChecked} onChange={onChange}/>
+          <th className="align-middle text-center">
+            <Checkbox isChecked={isChecked} onChange={onChange} />
           </th>
         )}
         {columns.map((column) => (

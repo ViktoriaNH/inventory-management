@@ -7,17 +7,18 @@ export const TableBody = ({
   columns = [],
   selectable,
   onChange,
-  selectedInventories
+  selectedInventories,
 }) => {
-
-
   return (
     <tbody className="text-secondary fw-light">
       {data.map((row) => (
         <tr key={row.id}>
           {selectable && (
-            <td className="align-middle">
-              <Checkbox isChecked={selectedInventories.includes(row.id)} onChange={() => onChange(row.id)} />
+            <td className="align-middle text-center">
+              <Checkbox
+                isChecked={selectedInventories.includes(row.id)}
+                onChange={() => onChange(row.id)}
+              />
             </td>
           )}
           {columns.map((column) => {

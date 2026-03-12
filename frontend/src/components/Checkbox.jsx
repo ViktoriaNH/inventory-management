@@ -1,14 +1,14 @@
 export const Checkbox = ({ name, label, isChecked, onChange }) => {
   return (
-    <div className="form-check">
+    <div>
       <input
-        className="form-check-input text-center "
+        className="form-check-input "
         type="checkbox"
         onChange={onChange}
         checked={isChecked}
       />
       {label && (
-        <label className="form-check-label ms-0" htmlFor={name}>
+        <label className="form-check-label ms-2" htmlFor={name}>
           {label}
         </label>
       )}
