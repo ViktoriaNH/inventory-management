@@ -2,17 +2,17 @@ export const TOOLBAR_BUTTONS = [
   {
     id: "add",
     label: "Add inventory", 
-    title: "Block selected users",
+    title: "Add inventory",
   },
   {
     id: "edit",
-    icon: "Pencil fill", 
+    icon: "pencil-fill", 
     title: "Edit selected inventory",
     disabled: true
   },
   {
     id: "delete",
-    icon: "Trash3 fill", 
-    title: "Delete selected users",
+    icon: "trash3-fill", 
+    title: "Delete selected inventory",
   },
 ];

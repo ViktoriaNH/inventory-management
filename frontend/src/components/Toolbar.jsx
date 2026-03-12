@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import initTooltips from "../../helpers/initTooltips";
 import { TOOLBAR_BUTTONS } from "../data/toolbar-buttons";
+import { initTooltips } from "../utils/init-tooltips";
 
-const Toolbar = () => {
+export const Toolbar = () => {
   useEffect(() => {
     initTooltips();
   }, []);
@@ -19,12 +19,10 @@ const Toolbar = () => {
           disabled={disabled}
           //   onClick={}
         >
-          {icon && <i className={`bi ${icon}`}></i>}
+          {icon && <i className={`bi bi-${icon}`}></i>}
           {label && <span>{label}</span>}
         </button>
       ))}
     </div>
   );
 };
-
-export default Toolbar;
