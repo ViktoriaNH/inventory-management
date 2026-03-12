@@ -17,7 +17,7 @@ export const UserTable = ({
           columns={columns}
           selectable={selectable}
           isChecked={allInventoriesSelected}
-          onChange={toggleAllInventories}
+          onChange={(e) => toggleAllInventories(e.target.checked)}
         />
         <TableBody
           data={data}
