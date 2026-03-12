@@ -1,10 +1,20 @@
-export const TableHeader = ({ columns = [], selectable }) => {
+import { Checkbox } from "../Checkbox";
+
+export const TableHeader = ({
+  columns = [],
+  selectable,
+  // data = [],
+  // selectedInventories = [],
+  // setSelectedInventories,
+}) => {
+
+
   return (
     <thead>
       <tr>
         {selectable && (
           <th className='text-center align-middle"'>
-            <input type="checkbox" className="form-check-input border-dark" />
+            <Checkbox />
           </th>
         )}
         {columns.map((column) => (

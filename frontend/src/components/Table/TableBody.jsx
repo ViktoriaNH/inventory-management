@@ -1,14 +1,23 @@
 import { renderCellValue } from "../../helpers/render-cell-value";
 import { formatNestedValue } from "../../utils/format-nested-value";
+import { Checkbox } from "../Checkbox";
 
-export const TableBody = ({ data = [], columns = [], selectable }) => {
+export const TableBody = ({
+  data = [],
+  columns = [],
+  selectable,
+  // selectedInventories = [],
+  // setSelectedInventories,
+}) => {
+
+
   return (
     <tbody className="text-secondary fw-light">
       {data.map((row) => (
         <tr key={row.id}>
           {selectable && (
             <td className="text-center align-middle">
-              <input type="checkbox" className="form-check-input border-dark" />
+             <Checkbox />
             </td>
           )}
           {columns.map((column) => {

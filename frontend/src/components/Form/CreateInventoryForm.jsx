@@ -2,16 +2,18 @@ import { Input } from "./Input";
 import { FormWrapper } from "../../layouts/FormWrapper";
 import { Button } from "../Button";
 import { ALERT_MESSAGES } from "../../data/alert-messages";
-import { Checkbox } from "./Checkbox";
 import { Select } from "./Select";
 import { useCategories } from "../../hooks/useCategories";
 import { useCreateInventory } from "../../hooks/useCreateInventory";
 import { showAlert } from "../../helpers/show-alert";
 import { useState } from "react";
 import { MarkdownEditor } from "../Markdown/MarkdownEditor";
+import { Checkbox } from "../Checkbox";
+import { Controller } from "react-hook-form";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
+  // const { control } = useFormContext();
   const { createInventory, isError } = useCreateInventory();
   const [description, setDescription] = useState("");
 
@@ -48,8 +50,10 @@ export const CreateInventoryForm = () => {
             options={data}
             required
           />
-
-          <Checkbox name="isPublic" label="Public inventory" />
+          <Controller
+            name="isPublic"
+            render={() => <Checkbox label="Public inventory" />}
+          />
         </div>
         <Button type="submit" className="mt-3" text="Create" />
       </FormWrapper>

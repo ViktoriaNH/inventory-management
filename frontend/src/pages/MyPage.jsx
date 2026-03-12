@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { fetchMyInventory } from "../api/inventory-api";
 import { MYPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { SECTION_LABELS } from "../data/labels";
@@ -8,6 +9,7 @@ import { InventoryTable } from "../section/InventoryTable";
 
 export const MyPage = () => {
   const api = useApi();
+  const [selectedInventories, setSelectedInventories] = useState([]);
 
   return (
     <>
@@ -19,6 +21,8 @@ export const MyPage = () => {
           fetch={() => fetchMyInventory(api)}
           columns={MYPAGE_INVENTORIES_COLUMNS}
           selectable
+          selectedInventories={selectedInventories}
+          setSelectedInventories={setSelectedInventories}
         />
       </main>
     </>
