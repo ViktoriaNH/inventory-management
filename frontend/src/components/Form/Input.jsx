@@ -3,8 +3,6 @@ import { useFormContext } from "react-hook-form";
 export const Input = ({ name, label, required, as = "input" }) => {
   const {
     register,
-    // TODO: рзабораться с ошибками, как их использовать
-    // formState: { errors },
   } = useFormContext();
 
   const Component = as;

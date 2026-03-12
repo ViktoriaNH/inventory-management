@@ -18,6 +18,7 @@ export const MyPage = () => {
           queryKey={QUERY_KEYS.inventories.my}
           fetch={() => fetchMyInventory(api)}
           columns={MYPAGE_INVENTORIES_COLUMNS}
+          selectable
         />
       </main>
     </>

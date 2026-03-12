@@ -10,7 +10,7 @@ export const InventorySettings = ({ data }) => {
 
   return (
     <section>
-      <header className="justify-content-sm-center mb-4">
+      <header className="d-flex flex-column justify-content-sm-center mb-4">
         <h3 className="mb-0">{data.title}</h3>
         <span>{status}</span>
       </header>

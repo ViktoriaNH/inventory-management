@@ -9,6 +9,7 @@ export const MarkdownPreview = ({ content, maxLength = 120 }) => {
   return (
     <span
       className="text-muted"
+      title={text}
       style={{ cursor: "default" }}
     >
       {preview}
