@@ -1,5 +1,5 @@
 import { Test } from "../components/Test";
-import { InventorySettings } from "../section/InventorySettings";
+import { InventorySettings } from "../sections/InventorySettings";
 
 export const SECTION_LABELS = {
   TOP_INVENTORIES: "Popular inventories",

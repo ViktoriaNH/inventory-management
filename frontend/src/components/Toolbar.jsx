@@ -17,7 +17,7 @@ export const Toolbar = () => {
           title={title}
           data-bs-toggle="tooltip"
           disabled={disabled}
-          //   onClick={}
+            // onClick={() => onAction (id)}
         >
           {icon && <i className={`bi bi-${icon}`}></i>}
           {label && <span>{label}</span>}

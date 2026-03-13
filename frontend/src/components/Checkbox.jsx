@@ -2,7 +2,7 @@ export const Checkbox = ({ name, label, isChecked, onChange }) => {
   return (
     <div>
       <input
-        className="form-check-input "
+        className="form-check-input shadow-none"
         type="checkbox"
         onChange={onChange}
         checked={isChecked}

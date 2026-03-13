@@ -5,7 +5,7 @@ import { SECTION_LABELS } from "../data/labels";
 import { QUERY_KEYS } from "../data/queries";
 import { useApi } from "../hooks/useApi";
 import { Header } from "../layouts/Header";
-import { InventoryTable } from "../section/InventoryTable";
+import { InventoryTable } from "../sections/InventoryTable";
 
 export const MyPage = () => {
   const api = useApi();

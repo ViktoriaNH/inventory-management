@@ -55,7 +55,7 @@ export const getMyInventories = async (userId) => {
     select: {
       id: true,
       title: true,
-      description: true
+      description: true,
     },
     orderBy: {
       createdAt: "desc",
@@ -96,4 +96,13 @@ export const createInventory = async (inventoryData) => {
   });
 
   return inventory;
+};
+
+export const deleteInventory = async () => {
+  const count = await prisma.inventory.deleteMany({
+    where: {
+      id: { in: inventoryIds },
+    },
+  });
+  return count;
 };

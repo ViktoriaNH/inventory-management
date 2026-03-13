@@ -13,7 +13,6 @@ import { Controller } from "react-hook-form";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
-  // const { control } = useFormContext();
   const { createInventory, isError } = useCreateInventory();
   const [description, setDescription] = useState("");
 
