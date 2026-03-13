@@ -37,6 +37,5 @@ export const useCreateInventory = () => {
   return {
     createInventory: mutation.mutate,
     isError: mutation.isError,
-    
   };
 };

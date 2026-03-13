@@ -98,10 +98,10 @@ export const createInventory = async (inventoryData) => {
   return inventory;
 };
 
-export const deleteInventory = async () => {
+export const deleteInventories = async (ids) => {
   const count = await prisma.inventory.deleteMany({
     where: {
-      id: { in: inventoryIds },
+      id: { in: ids },
     },
   });
   return count;

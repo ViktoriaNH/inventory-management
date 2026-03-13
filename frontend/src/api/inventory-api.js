@@ -21,9 +21,9 @@ export const fetchInventoryById = async (api, inventoryId) => {
   return api(`/api/inventories/${inventoryId}`);
 };
 
-export const deleteInventories = async (api, selectedInventories ) => {
+export const deleteInventories = async (api, ids ) => {
   return api('api/inventories/delete', {
     method: 'DELETE',
-     body: JSON.stringify(selectedInventories),
+     body: JSON.stringify(ids),
   })
 }
