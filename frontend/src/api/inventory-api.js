@@ -20,3 +20,10 @@ export const fetchMyInventory = async (api) => {
 export const fetchInventoryById = async (api, inventoryId) => {
   return api(`/api/inventories/${inventoryId}`);
 };
+
+export const deleteInventories = async (api, selectedInventories ) => {
+  return api('api/inventories/delete', {
+    method: 'DELETE',
+     body: JSON.stringify(selectedInventories),
+  })
+}

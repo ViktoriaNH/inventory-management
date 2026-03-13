@@ -9,3 +9,9 @@ export const QUERY_KEYS = {
     byId: (inventoryId) => ["inventories", "byId", inventoryId],
   },
 };
+
+export const QUERY_INVENTORIES_KEYS = [
+  QUERY_KEYS.inventories.my,
+  QUERY_KEYS.inventories.top,
+  QUERY_KEYS.inventories.latest,
+];

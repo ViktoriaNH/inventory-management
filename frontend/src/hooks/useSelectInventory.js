@@ -21,10 +21,15 @@ export const useSelectInventory = (inventoriesIds) => {
     );
   };
 
+  const clearSelectedInventories = () => {
+    setSelectedInventories([])
+  }
+
   return {
     allInventoriesSelected,
     toggleInventory,
     toggleAllInventories,
     selectedInventories,
+    clearSelectedInventories
   };
 };

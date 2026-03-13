@@ -16,7 +16,7 @@ export const MyPage = () => {
       <main className="container px-3 px-sm-4">
         <InventoryTable
           title={SECTION_LABELS.MY_INVENTORIES}
-          toolbar={<Toolbar />}
+          toolbar={(props) => <Toolbar {...props} />}
           queryKey={QUERY_KEYS.inventories.my}
           fetch={() => fetchMyInventory(api)}
           columns={MYPAGE_INVENTORIES_COLUMNS}

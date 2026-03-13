@@ -9,6 +9,7 @@ export const UserTable = ({
   toggleInventory,
   toggleAllInventories,
   selectedInventories = [],
+  isDeleting
 }) => {
   return (
     <div className="table-responsive mt-1">
@@ -18,6 +19,7 @@ export const UserTable = ({
           selectable={selectable}
           isChecked={allInventoriesSelected}
           onChange={(e) => toggleAllInventories(e.target.checked)}
+          disabled={isDeleting}
         />
         <TableBody
           data={data}
@@ -25,6 +27,7 @@ export const UserTable = ({
           selectable={selectable}
           selectedInventories={selectedInventories}
           onChange={toggleInventory}
+              disabled={isDeleting}
         />
       </table>
     </div>

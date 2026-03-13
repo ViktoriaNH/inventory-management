@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { TOOLBAR_BUTTONS } from "../data/toolbar-buttons";
 import { initTooltips } from "../utils/init-tooltips";
 
-export const Toolbar = () => {
+export const Toolbar = ({onAction, isDeleting}) => {
   useEffect(() => {
     initTooltips();
   }, []);
@@ -16,8 +16,8 @@ export const Toolbar = () => {
           className="btn btn-outline-dark d-flex align-items-center gap-2 px-3"
           title={title}
           data-bs-toggle="tooltip"
-          disabled={disabled}
-            // onClick={() => onAction (id)}
+          disabled={disabled || isDeleting}
+          onClick={() => onAction(id)}
         >
           {icon && <i className={`bi bi-${icon}`}></i>}
           {label && <span>{label}</span>}
