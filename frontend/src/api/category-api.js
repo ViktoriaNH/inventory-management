@@ -1,3 +1,3 @@
-export const fetchCategoriesApi = (api) => {
+export const fetchCategories = (api) => {
   return api("/api/categories");
 };
