@@ -11,7 +11,6 @@ export const useDeleteInventories = () => {
   const { showToast } = useToast();
 
   const invalidateInventories = () => {
-   // TODO: в других хуках тоже использовать
     QUERY_INVENTORIES_KEYS.forEach((key) =>
       queryClient.invalidateQueries({ queryKey: key }),
     );
