@@ -18,7 +18,6 @@ export const useDeleteInventories = () => {
 
   const mutation = useMutation({
     mutationFn: (ids) => deleteInventories(api, ids),
-    // TODO: надо решить с неймингом апи и вызовов функций
 
     onSuccess: () => {
       showToast(ALERT_MESSAGES.SUCCESS_DELETING);

@@ -5,8 +5,8 @@ import { useSelectInventory } from "../hooks/useSelectInventory.js";
 import { renderQueryState } from "../utils/render-query-state.jsx";
 import { PATHS } from "../data/paths.js";
 import { useDeleteInventories } from "../hooks/useDeleteInventories.js";
-import { showAlert } from "../helpers/show-alert.jsx";
 import { ALERT_MESSAGES } from "../data/alert-messages.js";
+import { deleteSelectedInventories } from "../helpers/delete-selected-inventories.js";
 
 export const InventoryTable = ({
   title,
@@ -37,21 +37,14 @@ export const InventoryTable = ({
     navigate(PATHS.CREATE_INVENTORY);
   };
 
-  const deleteSelectedInventories = () => {
-    if (selectedInventories.length === 0) {
-      showAlert(ALERT_MESSAGES.NO_SELECTED);
-    } else {
-      mutateDeleteInventories(selectedInventories, {
-        onSuccess: () => {
-          clearSelectedInventories();
-        },
-      });
-    }
-  };
-
   const ACTIONS = {
     add: addInventory,
-    delete: deleteSelectedInventories,
+    delete: () =>
+      deleteSelectedInventories(
+        selectedInventories,
+        mutateDeleteInventories,
+        clearSelectedInventories,
+      ),
   };
 
   const queryState = renderQueryState({ data, isPending, isError });
