@@ -7,7 +7,6 @@ const router = Router();
 router.post(
   "/",
   (req, res, next) => {
-    console.log("BEFORE requireAuth", req.headers);
     next();
   },
   requireAuth(),

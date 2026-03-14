@@ -25,15 +25,13 @@ export const useDeleteInventories = () => {
       invalidateInventories();
     },
 
-    onError: (error) => {
-      console.error(error);
-      showToast(ALERT_MESSAGES.FETCH_ERROR);
+    onError: () => {
+      showToast(ALERT_MESSAGES.ERROR_DELETING);
     },
   });
 
   return {
     mutateDeleteInventories: mutation.mutate,
-    isError: mutation.isError,
     isPending: mutation.isPending,
   };
 };

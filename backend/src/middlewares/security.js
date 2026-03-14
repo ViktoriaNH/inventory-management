@@ -13,6 +13,5 @@ export const csp = (req, res, next) => {
 };
 
 export const logger = (req, res, next) => {
-  console.log("➡️ BACKEND GOT:", req.method, req.url);
   next();
 };

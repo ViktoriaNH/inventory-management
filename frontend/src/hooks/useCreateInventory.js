@@ -24,13 +24,12 @@ export const useCreateInventory = () => {
       invalidateInventories();
     },
 
-    onError: (error) => {
-      console.error(error);
+    onError: () => {
+      showToast(ALERT_MESSAGES.ERROR_CREATE);
     },
   });
 
   return {
     createInventory: mutation.mutate,
-    isError: mutation.isError,
   };
 };

@@ -4,6 +4,8 @@ export const ALERT_MESSAGES = {
   NO_DATA: "Data not found",
   LOADING_DATA: "Loading inventories",
   CREATE_INVENTORIES: "The inventory was created",
+  ERROR_CREATE: 'Failed to create inventories, try again',
   NO_SELECTED: "No selected inventories for deleting",
   SUCCESS_DELETING: "The inventories was delete",
+  ERROR_DELETING: 'Failed to delete inventories, try again'
 };
