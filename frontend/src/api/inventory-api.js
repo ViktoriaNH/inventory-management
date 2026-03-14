@@ -22,7 +22,7 @@ export const fetchInventoryById = async (api, inventoryId) => {
 };
 
 export const deleteInventories = async (api, ids ) => {
-  return api('api/inventories/delete', {
+  return api('/api/inventories/delete', {
     method: 'DELETE',
      body: JSON.stringify(ids),
   })
