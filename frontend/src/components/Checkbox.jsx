@@ -1,6 +1,6 @@
 export const Checkbox = ({ name, label, isChecked, onChange }) => {
   return (
-    <div className="form-check" style={{ "--bs-primary": "#6c757d" }}>
+    <div className="form-check">
       <input
         className="form-check-input shadow-none"
         type="checkbox"

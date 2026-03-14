@@ -10,6 +10,7 @@ Inventory Management is a versatile web application for tracking various types o
 - [x] Displaying a list of the most popular and recently created inventories
 - [x] View details of your own and other users' inventories
 - [x] Create an inventory with a description, category selection, and status (private or public)
+- [x] Delete personal inventories
 - [x] Clean UI using Bootstrap
 - [x] Clear separation of logic, UI components, hooks, utils and helpers
 
@@ -48,6 +49,7 @@ Inventory Management is a versatile web application for tracking various types o
 │   │   └── utils/
 │   │
 │   ├── App.jsx
+│   ├── index.css
 │   └── main.jsx
 
 ```
