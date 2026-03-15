@@ -1,6 +1,5 @@
 import { SignIn, SignUp } from "@clerk/clerk-react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CenteringWrapper } from "./layouts/CenteringWrapper";
 import { useSyncUser } from "./hooks/useUserSync";
 import { CreateInventory } from "./pages/CreateInventory";
 import { MainPage } from "./pages/MainPage";
@@ -18,17 +17,17 @@ export const App = () => {
         <Route
           path={PATHS.LOGIN}
           element={
-            <CenteringWrapper>
+            <div className="d-flex justify-content-center align-items-center min-vh-100">
               <SignIn />
-            </CenteringWrapper>
+            </div>
           }
         />
         <Route
           path={PATHS.REGISTER}
           element={
-            <CenteringWrapper>
+            <div className="d-flex justify-content-center align-items-center min-vh-100" >
               <SignUp />
-            </CenteringWrapper>
+            </div>
           }
         />
         <Route path={PATHS.CREATE_INVENTORY} element={<CreateInventory />} />
