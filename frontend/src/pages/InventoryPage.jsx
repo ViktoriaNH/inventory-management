@@ -8,6 +8,7 @@ import { renderQueryState } from "../utils/render-query-state";
 import { QUERY_KEYS } from "../data/queries";
 import { fetchInventoryById } from "../api/inventory-api";
 import { Header } from "../layouts/Header";
+import { PageWrapper } from "../layouts/PageWrapper";
 
 export const InventoryPage = () => {
   const { inventoryId } = useParams();
@@ -23,28 +24,30 @@ export const InventoryPage = () => {
   const queryState = renderQueryState({ data, isPending, isError });
 
   return (
-    <>
-      <Header />
-      <main className="container px-3 px-sm-4">
-        <Tabs
-          id="uncontrolled-tab-example"
-          className='justify-content-md-center flex-wrap mb-3'
-          defaultActiveKey={ACTIVE_TAB}
-          mountOnEnter
-          unmountOnExit
-        >
-          {TABS_LABELS.map((tab) => {
-            const Component = tab.component;
-            return (
-              <Tab tabClassName="text-secondary link-dark" key={tab.id} eventKey={tab.id} title={tab.title} >
-                {queryState ?
-                  queryState
-                : <Component data={data} inventoryId={inventoryId} />}
-              </Tab>
-            );
-          })}
-        </Tabs>
-      </main>
-    </>
+    <PageWrapper>
+      <Tabs
+        id="uncontrolled-tab-example"
+        className="justify-content-md-center flex-wrap mb-3"
+        defaultActiveKey={ACTIVE_TAB}
+        mountOnEnter
+        unmountOnExit
+      >
+        {TABS_LABELS.map((tab) => {
+          const Component = tab.component;
+          return (
+            <Tab
+              tabClassName="text-secondary link-dark"
+              key={tab.id}
+              eventKey={tab.id}
+              title={tab.title}
+            >
+              {queryState ?
+                queryState
+              : <Component data={data} inventoryId={inventoryId} />}
+            </Tab>
+          );
+        })}
+      </Tabs>
+    </PageWrapper>
   );
 };

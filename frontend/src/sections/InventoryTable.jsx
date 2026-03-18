@@ -5,7 +5,6 @@ import { useSelectInventory } from "../hooks/useSelectInventory.js";
 import { renderQueryState } from "../utils/render-query-state.jsx";
 import { PATHS } from "../data/paths.js";
 import { useDeleteInventories } from "../hooks/useDeleteInventories.js";
-import { ALERT_MESSAGES } from "../data/alert-messages.js";
 import { deleteSelectedInventories } from "../helpers/delete-selected-inventories.js";
 
 export const InventoryTable = ({
