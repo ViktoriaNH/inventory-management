@@ -14,7 +14,7 @@ export const MyProfile = ({ queryKey, fetch }) => {
       <h2 className="h4 mb-3 text-center">My profile</h2>
       {queryState ?
         queryState
-      : <div className="text-center">
+      : <div>
           <div>
             <InventoryField label={MY_PROFILE_LABELS.USERNAME}>
               {data.name}
@@ -23,7 +23,7 @@ export const MyProfile = ({ queryKey, fetch }) => {
               {data.email}
             </InventoryField>
           </div>
-          <Button text='Sync with Salesforce' />
+          <Button text="Sync with Salesforce" />
         </div>
       }
     </section>

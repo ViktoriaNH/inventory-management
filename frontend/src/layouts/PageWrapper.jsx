@@ -1,5 +1,5 @@
 import { Button } from "../components/Button";
-import { HelpModal } from "../components/HelpModal/HelpModal";
+import { HelpModal } from "../components/Modal/HelpModal";
 import { Header } from "../layouts/Header";
 
 export const PageWrapper = ({ children, className, onSubmit }) => {
