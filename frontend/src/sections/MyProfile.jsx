@@ -23,7 +23,11 @@ export const MyProfile = ({ queryKey, fetch }) => {
               {data.email}
             </InventoryField>
           </div>
-          <Button text="Sync with Salesforce" />
+          <Button
+            text="Sync with Salesforce"
+            data-bs-toggle="modal"
+            data-bs-target="#helpModal"
+          />
         </div>
       }
     </section>
