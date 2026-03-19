@@ -31,3 +31,10 @@ export const TABS_LABELS = [
     component: Test,
   },
 ];
+
+export const MY_PROFILE_LABELS = {
+   USERNAME: "My username",
+   EMAIL:  'My email',
+}
+  
+

@@ -1,5 +1,5 @@
-import { checkUserInDB } from "../helpers/check-user-in-db";
-import { handleError } from "../utils/handle-error"
+import { checkUserInDB } from "../helpers/check-user-in-db.js";
+import { handleError } from "../utils/handle-error.js"
 
 export const getUserProfile = async (req, res) => {
     try {
