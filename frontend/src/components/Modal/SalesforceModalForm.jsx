@@ -16,7 +16,7 @@ export const SalesforceModalForm = ({ onSubmit }) => {
         <Input name="lastName" label="Last name" required />
       </div>
 
-      <ModalFooter submitText="Create account" />
+      <ModalFooter />
     </FormWrapper>
   );
 };

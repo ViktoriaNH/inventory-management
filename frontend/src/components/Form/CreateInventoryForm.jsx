@@ -30,7 +30,7 @@ export const CreateInventoryForm = () => {
 
   return (
     <section>
-      <h1 className="text-center">Create inventory</h1>
+      <h1 className="h4">Create inventory</h1>
 
       {isError && showAlert(ALERT_MESSAGES.FETCH_ERROR)}
 

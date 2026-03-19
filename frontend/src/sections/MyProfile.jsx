@@ -11,7 +11,7 @@ export const MyProfile = ({ queryKey, fetch }) => {
 
   return (
     <section>
-      <h2 className="h4 mb-3 text-center">My profile</h2>
+      <h2 className="h4 mb-3">My profile</h2>
       {queryState ?
         queryState
       : <div>
@@ -26,7 +26,7 @@ export const MyProfile = ({ queryKey, fetch }) => {
           <Button
             text="Sync with Salesforce"
             data-bs-toggle="modal"
-            data-bs-target="#helpModal"
+            data-bs-target="crmModal"
           />
         </div>
       }
