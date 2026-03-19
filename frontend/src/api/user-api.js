@@ -3,3 +3,7 @@ export const syncUser = (api) => {
     method: "POST",
   });
 };
+
+export const fetchMyProfile = (api) => {
+  return api('/api/users/profile')
+}

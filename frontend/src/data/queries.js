@@ -8,6 +8,9 @@ export const QUERY_KEYS = {
     latest: ["inventories", "latest"],
     byId: (inventoryId) => ["inventories", "byId", inventoryId],
   },
+  users: {
+    myProfile: ['users', 'my'],
+  }
 };
 
 export const QUERY_INVENTORIES_KEYS = [

@@ -25,7 +25,7 @@ export const App = () => {
         <Route
           path={PATHS.REGISTER}
           element={
-            <div className="d-flex justify-content-center align-items-center min-vh-100" >
+            <div className="d-flex justify-content-center align-items-center min-vh-100">
               <SignUp />
             </div>
           }

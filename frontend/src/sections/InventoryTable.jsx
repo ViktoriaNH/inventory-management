@@ -50,7 +50,7 @@ export const InventoryTable = ({
 
   return (
     <div className="w-100">
-      <h2 className="h2 mb-3 text-center">{title}</h2>
+      <h2 className="h4 mb-3 text-center">{title}</h2>
 
       {toolbar &&
         toolbar({
