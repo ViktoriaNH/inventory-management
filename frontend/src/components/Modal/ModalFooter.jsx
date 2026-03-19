@@ -1,3 +1,5 @@
+import { Button } from "../Button";
+
 export const ModalFooter = ({
   submit = "Submit",
   cancel = "Cancel",

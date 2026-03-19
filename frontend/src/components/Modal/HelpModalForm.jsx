@@ -1,7 +1,6 @@
 import { FormWrapper } from "../../layouts/FormWrapper";
 import { Input } from "../Form/Input";
 import { Select } from "../Form/Select";
-import { Button } from "../Button";
 import { SELECT_MODAL_OPTIONS } from "../../data/select-options";
 import { handleModalSubmit } from "../../utils/nandle-modal-submit";
 import { ModalFooter } from "./ModalFooter";
