@@ -7,6 +7,7 @@ import { csp, logger } from "./src/middlewares/security.js";
 import userRoutes from "./src/routes/user-routes.js";
 import inventoryRoutes from "./src/routes/inventory-routes.js";
 import categoryRoutes from "./src/routes/category-routes.js";
+import salesforceRoutes from "./src/routes/salesforce-routes.js";
 
 const { PORT } = loadEnv();
 
@@ -21,6 +22,7 @@ app.use(clerkMiddleware());
 app.use("/api/users", userRoutes);
 app.use("/api/inventories", inventoryRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use("api/salesforce", salesforceRoutes);
 
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));
 

@@ -4,14 +4,17 @@ import { MY_PROFILE_LABELS } from "../data/labels";
 import { useInventories } from "../hooks/useInventories";
 import { renderQueryState } from "../utils/render-query-state";
 import { SalesforceModal } from "../components/Modal/SalesforceModal";
+import { createSalesforceAccount } from "../api/salesforce-api";
+import { useApi } from "../hooks/useApi";
 
-export const MyProfile = ({ queryKey, fetch, onSubmit }) => {
+export const MyProfile = ({ queryKey, fetch }) => {
   const { data, isPending } = useInventories(queryKey, fetch);
+  const api = useApi();
 
   const queryState = renderQueryState({ data, isPending });
 
-  const handleCrm = (data) => {
-    onSubmit(data);
+  const handleCrm = async (formData) => {
+    await createSalesforceAccount(api, formData);
   };
 
   return (

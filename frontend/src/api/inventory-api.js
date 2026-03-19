@@ -27,3 +27,5 @@ export const deleteInventories = async (api, ids ) => {
      body: JSON.stringify(ids),
   })
 }
+
+
