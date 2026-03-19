@@ -33,8 +33,8 @@ export const TABS_LABELS = [
 ];
 
 export const MY_PROFILE_LABELS = {
-   USERNAME: "My username",
-   EMAIL:  'My email',
+   USERNAME: "Username",
+   EMAIL:  'Email',
 }
   
 

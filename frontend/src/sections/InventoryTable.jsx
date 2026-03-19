@@ -52,24 +52,25 @@ export const InventoryTable = ({
     <div className="w-100">
       <h2 className="h4 mb-3 text-center">{title}</h2>
 
-      {toolbar &&
-        toolbar({
-          onAction: (actionId) => ACTIONS[actionId](),
-          isDeleting,
-        })}
-
       {queryState ?
         queryState
-      : <UserTable
-          selectable={selectable}
-          columns={columns}
-          data={data}
-          allInventoriesSelected={allInventoriesSelected}
-          toggleInventory={toggleInventory}
-          toggleAllInventories={toggleAllInventories}
-          selectedInventories={selectedInventories}
-          isDeleting={isDeleting}
-        />
+      : <>
+          {toolbar &&
+            toolbar({
+              onAction: (actionId) => ACTIONS[actionId](),
+              isDeleting,
+            })}
+          <UserTable
+            selectable={selectable}
+            columns={columns}
+            data={data}
+            allInventoriesSelected={allInventoriesSelected}
+            toggleInventory={toggleInventory}
+            toggleAllInventories={toggleAllInventories}
+            selectedInventories={selectedInventories}
+            isDeleting={isDeleting}
+          />
+        </>
       }
     </div>
   );

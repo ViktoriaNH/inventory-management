@@ -1,3 +1,4 @@
+import { Button } from "../components/Button";
 import { InventoryField } from "../components/InventoryField";
 import { MY_PROFILE_LABELS } from "../data/labels";
 import { useInventories } from "../hooks/useInventories";
@@ -13,13 +14,16 @@ export const MyProfile = ({ queryKey, fetch }) => {
       <h2 className="h4 mb-3 text-center">My profile</h2>
       {queryState ?
         queryState
-      : <div>
-          <InventoryField label={MY_PROFILE_LABELS.USERNAME}>
-            {data.name}
-          </InventoryField>
-          <InventoryField label={MY_PROFILE_LABELS.NAME}>
-            {data.email}
-          </InventoryField>
+      : <div className="text-center">
+          <div>
+            <InventoryField label={MY_PROFILE_LABELS.USERNAME}>
+              {data.name}
+            </InventoryField>
+            <InventoryField label={MY_PROFILE_LABELS.EMAIL}>
+              {data.email}
+            </InventoryField>
+          </div>
+          <Button text='Sync with Salesforce' />
         </div>
       }
     </section>

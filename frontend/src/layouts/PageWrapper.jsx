@@ -1,12 +1,12 @@
 import { Button } from "../components/Button";
-import { HelpModal } from "../components/HelpModal";
+import { HelpModal } from "../components/HelpModal/HelpModal";
 import { Header } from "../layouts/Header";
 
 export const PageWrapper = ({ children, className, onSubmit }) => {
-      const handleHelp = (data) => {
+  const handleHelp = (data) => {
     onSubmit(data);
   };
-  
+
   return (
     <>
       <Header />
@@ -20,7 +20,7 @@ export const PageWrapper = ({ children, className, onSubmit }) => {
           data-bs-target="#helpModal"
         />
       </main>
-      <HelpModal onSubmit={handleHelp}/>
+      <HelpModal onSubmit={handleHelp} />
     </>
   );
 };

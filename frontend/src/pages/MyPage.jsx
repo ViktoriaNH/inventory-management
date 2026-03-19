@@ -13,7 +13,7 @@ export const MyPage = () => {
   const api = useApi();
 
   return (
-    <PageWrapper>
+    <PageWrapper className='d-flex flex-column gap-5'>
       <MyProfile
         queryKey={QUERY_KEYS.users.myProfile}
         fetch={() => fetchMyProfile(api)}
