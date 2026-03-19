@@ -2,7 +2,7 @@
 CREATE TABLE "inventories" (
     "id" UUID NOT NULL,
     "title" TEXT NOT NULL,
-    "description" TEXT,
+    "description" TEXT NOT NULL,
     "isPublic" BOOLEAN NOT NULL DEFAULT false,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -49,8 +49,8 @@ CREATE TABLE "comments" (
     "id" UUID NOT NULL,
     "text" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "inventory_id" TEXT,
-    "author_id" TEXT,
+    "inventory_id" UUID,
+    "author_id" UUID,
 
     CONSTRAINT "comments_pkey" PRIMARY KEY ("id")
 );
@@ -71,7 +71,7 @@ CREATE TABLE "items" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "version" INTEGER NOT NULL DEFAULT 1,
-    "inventory_id" TEXT NOT NULL,
+    "inventory_id" UUID NOT NULL,
     "creator_id" UUID NOT NULL,
     "custom_string1_value" TEXT,
     "custom_string2_value" TEXT,
@@ -95,8 +95,8 @@ CREATE TABLE "items" (
 -- CreateTable
 CREATE TABLE "access" (
     "id" UUID NOT NULL,
-    "user_id" TEXT NOT NULL,
-    "inventory_id" TEXT NOT NULL,
+    "user_id" UUID NOT NULL,
+    "inventory_id" UUID NOT NULL,
 
     CONSTRAINT "access_pkey" PRIMARY KEY ("id")
 );
@@ -104,8 +104,8 @@ CREATE TABLE "access" (
 -- CreateTable
 CREATE TABLE "likes" (
     "id" UUID NOT NULL,
-    "user_id" TEXT,
-    "item_id" TEXT,
+    "user_id" UUID,
+    "item_id" UUID,
 
     CONSTRAINT "likes_pkey" PRIMARY KEY ("id")
 );
@@ -120,8 +120,8 @@ CREATE TABLE "tags" (
 
 -- CreateTable
 CREATE TABLE "inventory_tags" (
-    "inventory_id" TEXT NOT NULL,
-    "tag_id" TEXT NOT NULL
+    "inventory_id" UUID NOT NULL,
+    "tag_id" UUID NOT NULL
 );
 
 -- CreateIndex

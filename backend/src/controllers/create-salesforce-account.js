@@ -1,3 +1,3 @@
-export const createSalesforceAccController = async () => {
-    
+export const createSalesforceAccController = async (req, res) => {
+
 }

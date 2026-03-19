@@ -33,6 +33,9 @@ model User {
   createdAt DateTime   @default(now()) @map("created_at")
   updatedAt DateTime   @updatedAt @map("updated_at")
 
+  salesforceId     String? @map("salesforce_id")
+  salesforceSyncAt DateTime? @map("salesforce_sync_at")
+
   inventories Inventory[]
   comments    Comment[]
   items       Item[]
@@ -45,7 +48,7 @@ model User {
 model Inventory {
   id          String   @id @default(uuid()) @db.Uuid
   title       String
-  description String?
+  description String
   isPublic    Boolean  @default(false)
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")

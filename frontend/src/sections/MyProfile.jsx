@@ -14,6 +14,7 @@ export const MyProfile = ({ queryKey, fetch }) => {
   const queryState = renderQueryState({ data, isPending });
 
   const handleCrm = async (formData) => {
+      console.log("FORM DATA:", formData);
     await createSalesforceAccount(api, formData);
   };
 
