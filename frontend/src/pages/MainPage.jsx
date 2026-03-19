@@ -6,7 +6,6 @@ import { MAINPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { QUERY_KEYS } from "../data/queries";
 import { SECTION_LABELS } from "../data/labels";
 import { useApi } from "../hooks/useApi";
-import { Header } from "../layouts/Header";
 import { InventoryTable } from "../sections/InventoryTable";
 import { PageWrapper } from "../layouts/PageWrapper";
 

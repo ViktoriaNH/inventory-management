@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { TOOLBAR_BUTTONS } from "../data/toolbar-buttons";
 import { initTooltips } from "../utils/init-tooltips";
 
-export const Toolbar = ({onAction, isDeleting}) => {
+export const Toolbar = ({ onAction, isDeleting }) => {
   useEffect(() => {
     initTooltips();
   }, []);
 
   return (
-    <div className="mb-4 d-flex justify-content-center gap-2 mt-3">
+    <div className="mb-4 d-flex gap-2 mt-3">
       {TOOLBAR_BUTTONS.map(({ id, label, title, icon, disabled }) => (
         <button
           key={id}
