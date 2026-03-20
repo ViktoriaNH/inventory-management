@@ -13,7 +13,7 @@ export const createInventoryController = async (req, res) => {
 
     const inventoryData = formInventoryData(req.body, user.id);
 
-    const inventory = await createInventory(inventoryData);А
+    const inventory = await createInventory(inventoryData);
 
     res.status(201).json(inventory);
   } catch (error) {
