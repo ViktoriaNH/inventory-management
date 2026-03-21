@@ -1,4 +1,5 @@
-import { createSalesforceAcc, updateSalesforceUser } from "../services/saleforce.js";
+import { createSalesforceAcc } from "../services/salesforce/create-salesforce-acc.js";
+import { updateSalesforceUser } from "../services/salesforce/update-salesforce-user.js";
 
 export const syncUserWithSalesforce = async ({
   user,
