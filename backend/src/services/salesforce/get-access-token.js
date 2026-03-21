@@ -1,14 +1,19 @@
+const CLIENT_ID = process.env.SALESFORCE_CLIENT_ID;
+const CLIENT_SECRET = process.env.SALESFORCE_CLIENT_SECRET;
+const LOGIN_URL = process.env.SALESFORCE_LOGIN_URL;
+
+
 export const getAccessToken = async () => {
   const params = new URLSearchParams();
 
   const add = (name, value) => params.append(name, value);
 
   add("grant_type", "client_credentials");
-  add("client_id", process.env.SALESFORCE_CLIENT_ID);
-  add("client_secret", process.env.SALESFORCE_CLIENT_SECRET);
+  add("client_id", CLIENT_ID);
+  add("client_secret", CLIENT_SECRET);
 
   const response = await fetch(
-    `${process.env.SALESFORCE_LOGIN_URL}/services/oauth2/token`,
+    `${LOGIN_URL}/services/oauth2/token`,
     {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
