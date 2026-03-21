@@ -8,6 +8,7 @@ import userRoutes from "./src/routes/user-routes.js";
 import inventoryRoutes from "./src/routes/inventory-routes.js";
 import categoryRoutes from "./src/routes/category-routes.js";
 import salesforceRoutes from "./src/routes/salesforce-routes.js";
+import { getAccessToken } from "./src/services/salesforce/get-access-token.js";
 
 const { PORT } = loadEnv();
 
@@ -25,5 +26,12 @@ app.use("/api/categories", categoryRoutes);
 app.use("api/salesforce", salesforceRoutes);
 
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));
+
+const test = async () => {
+  const result = await getAccessToken();
+  console.log(result);
+};
+
+test();
 
 app.listen(PORT, "0.0.0.0", () => {});
