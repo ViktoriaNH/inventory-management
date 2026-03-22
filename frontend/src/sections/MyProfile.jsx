@@ -20,14 +20,11 @@ export const MyProfile = ({ queryKey, fetch }) => {
     try {
       await createSalesforceAccount(api, formData);
 
-      showToast({
-        message: ALERT_MESSAGES.SUCCESS_SALESFORCE,
-      });
+      showToast(ALERT_MESSAGES.SUCCESS_SALESFORCE);
     } catch (error) {
       console.error(error);
-      showToast({
-        message: ALERT_MESSAGES.ERROR_SALESFORCE,
-      });
+      showToast(ALERT_MESSAGES.ERROR_SALESFORCE);
+      throw error;
     }
   };
 
