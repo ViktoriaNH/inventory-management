@@ -2,11 +2,11 @@ import { Modal } from "../../layouts/Modal";
 import { handleModalSubmit } from "../../utils/nandle-modal-submit";
 import { SalesforceModalForm } from "./SalesforceModalForm";
 
-export const SalesforceModal = ({ onSubmit, onClose }) => {
-    const handleSubmit = handleModalSubmit(onClose, onSubmit);
+export const SalesforceModal = ({ isOpen, onSubmit, onClose }) => {
+  const handleSubmit = handleModalSubmit(onClose, onSubmit);
 
   return (
-    <Modal open onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <SalesforceModalForm onSubmit={handleSubmit} />
     </Modal>
   );

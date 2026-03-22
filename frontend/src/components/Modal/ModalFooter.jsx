@@ -4,10 +4,11 @@ export const ModalFooter = ({
   submit = "Submit",
   cancel = "Cancel",
   variant = "secondary",
+   onClose
 }) => {
   return (
     <div className="modal-footer">
-      <Button text={cancel} data-bs-dismiss="modal" />
+      <Button text={cancel} onClick={onClose}/>
       <Button text={submit} type="submit" variant={variant} />
     </div>
   );

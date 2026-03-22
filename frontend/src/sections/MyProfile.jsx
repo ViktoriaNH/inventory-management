@@ -51,6 +51,7 @@ export const MyProfile = ({ queryKey, fetch }) => {
 
           {isModalOpen && (
             <SalesforceModal
+              isOpen={isModalOpen}
               onSubmit={handleCrm}
               onClose={() => setIsModalOpen(false)}
             />
