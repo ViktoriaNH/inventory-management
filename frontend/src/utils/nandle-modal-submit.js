@@ -1,5 +1,10 @@
 import { Modal } from "bootstrap";
 
+const removeModal = () => {
+  document.querySelectorAll(".modal-backdrop").forEach((backdrop) => backdrop.remove());
+  document.body.classList.remove("modal-open");
+};
+
 export const handleModalSubmit = (modalId, onSubmit) => {
   return async (data, reset) => {
     try {
@@ -12,6 +17,8 @@ export const handleModalSubmit = (modalId, onSubmit) => {
         "hidden.bs.modal",
         () => {
           reset();
+          modalInstance.dispose();
+          removeModal();
         },
         { once: true },
       );
