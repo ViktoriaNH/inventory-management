@@ -7,7 +7,7 @@ import { csp, logger } from "./src/middlewares/security.js";
 import userRoutes from "./src/routes/user-routes.js";
 import inventoryRoutes from "./src/routes/inventory-routes.js";
 import categoryRoutes from "./src/routes/category-routes.js";
-import salesforceRoutes from "./src/routes/salesforce-routes.js";
+import salesforceRoutes from './src/routes/salesforce-routes.js'
 import { getAccessToken } from "./src/services/salesforce/get-access-token.js";
 
 const { PORT } = loadEnv();

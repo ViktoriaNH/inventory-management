@@ -7,5 +7,7 @@ export const ALERT_MESSAGES = {
   ERROR_CREATE: 'Failed to create inventories, try again',
   NO_SELECTED: "No selected inventories for deleting",
   SUCCESS_DELETING: "The inventories was delete",
-  ERROR_DELETING: 'Failed to delete inventories, try again'
+  ERROR_DELETING: 'Failed to delete inventories, try again',
+  SUCCESS_SALESFORCE: 'Salesforce account created successfully',
+  ERROR_SALESFORCE: 'Failed to create Salesforce account. Please try again'
 };
