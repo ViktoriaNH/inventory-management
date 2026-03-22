@@ -11,8 +11,8 @@ import { ALERT_MESSAGES } from "../data/alert-messages";
 
 export const MyProfile = ({ queryKey, fetch }) => {
   const { data, isPending } = useInventories(queryKey, fetch);
-  const api = useApi();
   const { showToast } = useToast();
+  const api = useApi();
 
   const queryState = renderQueryState({ data, isPending });
 
