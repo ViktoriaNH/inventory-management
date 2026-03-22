@@ -23,7 +23,7 @@ app.use(clerkMiddleware());
 app.use("/api/users", userRoutes);
 app.use("/api/inventories", inventoryRoutes);
 app.use("/api/categories", categoryRoutes);
-app.use("api/salesforce", salesforceRoutes);
+app.use("/api/salesforce", salesforceRoutes);
 
 app.use((req, res) => res.status(404).json({ message: "Route not found" }));
 
