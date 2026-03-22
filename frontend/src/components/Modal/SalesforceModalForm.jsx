@@ -1,13 +1,11 @@
 import { FormWrapper } from "../../layouts/FormWrapper";
-import { handleModalSubmit } from "../../utils/nandle-modal-submit";
 import { Input } from "../Form/Input";
 import { ModalFooter } from "./ModalFooter";
 
 export const SalesforceModalForm = ({ onSubmit }) => {
-  const handleSubmit = handleModalSubmit("crmModal", onSubmit);
 
   return (
-    <FormWrapper onSubmit={handleSubmit}>
+    <FormWrapper onSubmit={onSubmit}>
       <div className="modal-body">
         <Input name="companyName" label="Company name" required />
 

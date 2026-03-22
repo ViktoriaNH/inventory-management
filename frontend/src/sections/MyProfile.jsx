@@ -8,9 +8,11 @@ import { createSalesforceAccount } from "../api/salesforce-api";
 import { useApi } from "../hooks/useApi";
 import { useToast } from "../hooks/useToast";
 import { ALERT_MESSAGES } from "../data/alert-messages";
+import { useState } from "react";
 
 export const MyProfile = ({ queryKey, fetch }) => {
   const { data, isPending } = useInventories(queryKey, fetch);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { showToast } = useToast();
   const api = useApi();
 
@@ -44,10 +46,15 @@ export const MyProfile = ({ queryKey, fetch }) => {
           </div>
           <Button
             text="Sync with Salesforce"
-            data-bs-toggle="modal"
-            data-bs-target="#crmModal"
+            onClick={() => setIsModalOpen(true)}
           />
-          <SalesforceModal onSubmit={handleCrm} />
+
+          {isModalOpen && (
+            <SalesforceModal
+              onSubmit={handleCrm}
+              onClose={() => setIsModalOpen(false)}
+            />
+          )}
         </div>
       }
     </section>
