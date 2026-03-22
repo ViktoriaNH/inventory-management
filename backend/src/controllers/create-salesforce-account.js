@@ -1,5 +1,6 @@
 import { checkUserInDB } from "../helpers/check-user-in-db.js";
-import { syncUserWithSalesforce } from "../helpers/sync-user-with-salesforce.js";
+import { syncUserWithSalesforce } from "../services/salesforce/sync-user-with-salesforce.js";
+
 import { handleError } from "../utils/handle-error.js";
 
 export const createSalesforceAccController = async (req, res) => {
