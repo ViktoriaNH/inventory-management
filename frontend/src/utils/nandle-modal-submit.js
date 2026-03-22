@@ -8,7 +8,14 @@ export const handleModalSubmit = (modalId, onSubmit) => {
       const modalElement = document.getElementById(modalId);
       const modalInstance = Modal.getOrCreateInstance(modalElement);
 
-      reset();
+      modalElement.addEventListener(
+        "hidden.bs.modal",
+        () => {
+          reset();
+        },
+        { once: true },
+      );
+
       modalInstance.hide();
     } catch (error) {
       console.error(error);
