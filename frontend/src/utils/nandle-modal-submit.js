@@ -1,10 +1,12 @@
 export const handleModalSubmit = (modalId, onSubmit) => {
-  return (data, reset) => {
+  return async (data, reset) => {
+    await onSubmit(data);
+
     const modalElement = document.getElementById(modalId);
-    const modalInstance = window.bootstrap.Modal.getInstance(modalElement);
-    modalInstance.hide();
+    const modalInstance =
+      window.bootstrap.Modal.getOrCreateInstance(modalElement);
 
     reset();
-    onSubmit(data);
+    modalInstance.hide();
   };
 };
