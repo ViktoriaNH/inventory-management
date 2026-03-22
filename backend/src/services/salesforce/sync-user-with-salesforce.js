@@ -1,7 +1,6 @@
 import { createAcc } from "./create-acc.js";
 import { getAccessToken } from "./get-access-token.js";
 import { createContact } from "./create-contact.js";
-import { updateSalesforceUser } from "./update-salesforce-user.js";
 import { saveUser } from "./save-user.js";
 
 export const syncUserWithSalesforce = async ({
@@ -37,3 +36,4 @@ export const syncUserWithSalesforce = async ({
     contactId,
   };
 };
+

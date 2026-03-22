@@ -5,5 +5,10 @@ export const callApi = async ({ url, method, headers, body }) => {
     body,
   });
 
+  if (!response.ok) {
+    throw new Error();
+  }
+
   return response.json();
-};
+}
+

@@ -1,4 +1,4 @@
-import { updateSalesforceUser } from "./update-salesforce-user";
+import { updateSalesforceUser } from "./update-salesforce-user.js";
 
 export const saveUser = ({ userId, contactId }) =>
   updateSalesforceUser({

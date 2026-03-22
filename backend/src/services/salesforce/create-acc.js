@@ -1,7 +1,7 @@
-import { getHeaders } from "../../helpers/get-headers";
-import { callApi } from "../../utils/call-api";
+import { getHeaders } from "../../helpers/get-headers.js";
+import { callApi } from "../../utils/call-api.js";
 
-export const createSalesforceAcc = async ({ url, token, companyName }) => {
+export const createAcc = async ({ url, token, companyName }) => {
   const result = await callApi({
     url: `${url}/services/data/v57.0/sobjects/Account`,
     method: "POST",

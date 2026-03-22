@@ -1,7 +1,7 @@
 import { callApi } from "../../utils/call-api.js";
 import { getHeaders} from '../../helpers/get-headers.js'
 
-export const createSalesforceContact = async ({
+export const createContact = async ({
   url,
   token,
   firstName,

@@ -1,10 +1,10 @@
-import { callApi } from "../../utils/call-api";
-
-const CLIENT_ID = process.env.SALESFORCE_CLIENT_ID;
-const CLIENT_SECRET = process.env.SALESFORCE_CLIENT_SECRET;
-const LOGIN_URL = process.env.SALESFORCE_LOGIN_URL;
+import { callApi } from "../../utils/call-api.js";
 
 export const getAccessToken = async () => {
+  const CLIENT_ID = process.env.SALESFORCE_CLIENT_ID;
+  const CLIENT_SECRET = process.env.SALESFORCE_CLIENT_SECRET;
+  const LOGIN_URL = process.env.SALESFORCE_LOGIN_URL;
+
   const params = new URLSearchParams();
 
   const add = (name, value) => params.append(name, value);
