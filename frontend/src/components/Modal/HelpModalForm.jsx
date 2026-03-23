@@ -5,8 +5,8 @@ import { SELECT_MODAL_OPTIONS } from "../../data/select-options";
 import { handleModalSubmit } from "../../utils/nandle-modal-submit";
 import { ModalFooter } from "./ModalFooter";
 
-export const HelpModalForm = ({ onSubmit }) => {
-  const handleSubmit = handleModalSubmit("helpModal", onSubmit);
+export const HelpModalForm = ({ onSubmit, onClose }) => {
+  const handleSubmit = handleModalSubmit(onClose, onSubmit);
 
   return (
     <FormWrapper onSubmit={handleSubmit}>
@@ -21,7 +21,7 @@ export const HelpModalForm = ({ onSubmit }) => {
         />
       </div>
 
-      <ModalFooter />
+      <ModalFooter onClose={onClose} />
     </FormWrapper>
   );
 };
