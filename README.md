@@ -88,3 +88,5 @@ Inventory Management is a versatile web application for tracking various types o
 ## Live Demo
 
 https://inventory-management-dgxh.onrender.com
+
+**Note:** Access to full inventory details requires authentication. Please sign up or log in to explore all functionalities.
