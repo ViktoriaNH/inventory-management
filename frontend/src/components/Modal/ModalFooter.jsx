@@ -4,7 +4,7 @@ export const ModalFooter = ({
   submit = "Submit",
   cancel = "Cancel",
   variant = "secondary",
-   onClose
+  onClose
 }) => {
   return (
     <div className="modal-footer">

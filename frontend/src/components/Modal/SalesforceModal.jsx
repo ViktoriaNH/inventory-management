@@ -6,8 +6,8 @@ export const SalesforceModal = ({ isOpen, onSubmit, onClose }) => {
   const handleSubmit = handleModalSubmit(onClose, onSubmit);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <SalesforceModalForm onSubmit={handleSubmit} />
+    <Modal isOpen={isOpen}>
+      <SalesforceModalForm onSubmit={handleSubmit} onClose={onClose} />
     </Modal>
   );
 };
