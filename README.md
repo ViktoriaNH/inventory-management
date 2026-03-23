@@ -13,6 +13,7 @@ Inventory Management is a versatile web application for tracking various types o
 - [x] Delete personal inventories
 - [x] Clean UI using Bootstrap
 - [x] Clear separation of logic, UI components, hooks, utils and helpers
+- [x] Integration with Salesforce
 
 ## Project Structure
 
@@ -60,6 +61,7 @@ Inventory Management is a versatile web application for tracking various types o
 
 - **React 19** - library for building interactive user interfaces
 - **React Router 7** - routing and navigation
+- **TanStack Query** - data fetching
 - **Bootstrap 5** - responsive layout, UI components
 - **Bootstrap Icons** - icon set used across the UI
 - **Vite** - fast build tool and development server
