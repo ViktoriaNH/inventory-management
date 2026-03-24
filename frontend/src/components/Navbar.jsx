@@ -3,11 +3,13 @@ import { MENU_ITEMS } from "../data/menu-items";
 import { Button } from "./Button";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { BurgerButton } from "./BurgerButton";
+import { useClerkAuthStatus } from "../hooks/useClerkAuthStatus";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { isSignedIn } = useUser();
+  const { isAuth } = useClerkAuthStatus();
 
   const handleLogout = async () => {
     await signOut();
@@ -20,7 +22,7 @@ export const Navbar = () => {
   return (
     <div className="collapse navbar-collapse" id="mainNavbar">
       <ul className="navbar-nav me-auto">
-        {MENU_ITEMS.map((item) => (
+        {MENU_ITEMS.filter((item) => !item.needAuth || isAuth).map((item) => (
           <li className="nav-item" key={item.id}>
             <NavLink className="nav-link" to={item.link}>
               {item.label}
@@ -43,7 +45,6 @@ export const Navbar = () => {
       {isSignedIn ?
         <Button text="Logout" onClick={handleLogout} className="mt-3 mt-lg-0" />
       : <Button text="Login" onClick={toSignIn} className="mt-3 mt-lg-0" />}
-
     </div>
   );
 };

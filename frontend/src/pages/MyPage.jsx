@@ -5,15 +5,19 @@ import { MYPAGE_INVENTORIES_COLUMNS } from "../data/columns";
 import { SECTION_LABELS } from "../data/labels";
 import { QUERY_KEYS } from "../data/queries";
 import { useApi } from "../hooks/useApi";
+import { useClerkAuthStatus } from "../hooks/useClerkAuthStatus";
 import { PageWrapper } from "../layouts/PageWrapper";
 import { InventoryTable } from "../sections/InventoryTable";
 import { MyProfile } from "../sections/MyProfile";
 
 export const MyPage = () => {
   const api = useApi();
+  const { isAuth } = useClerkAuthStatus();
+
+  if (!isAuth) return null;
 
   return (
-    <PageWrapper className='d-flex flex-column gap-5'>
+    <PageWrapper className="d-flex flex-column gap-5">
       <MyProfile
         queryKey={QUERY_KEYS.users.myProfile}
         fetch={() => fetchMyProfile(api)}
