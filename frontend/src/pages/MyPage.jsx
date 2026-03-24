@@ -12,12 +12,12 @@ import { MyProfile } from "../sections/MyProfile";
 
 export const MyPage = () => {
   const api = useApi();
-  const { isAuth } = useClerkAuthStatus();
+  const { isAuth} = useClerkAuthStatus();
 
   if (!isAuth) return null;
 
   return (
-    <PageWrapper className="d-flex flex-column gap-5">
+    <PageWrapper className='d-flex flex-column gap-5'>
       <MyProfile
         queryKey={QUERY_KEYS.users.myProfile}
         fetch={() => fetchMyProfile(api)}

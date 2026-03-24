@@ -6,7 +6,7 @@ import { PageWrapper } from "../layouts/PageWrapper";
 
 export const CreateInventory = () => {
   const { isAuth } = useClerkAuthStatus();
-  const message = showAlert(ALERT_MESSAGES.NO_DATA, "light")
+  const message = showAlert(ALERT_MESSAGES.CANT_CREATE_INVENTORY, "light")
 
   return (
     <PageWrapper>
