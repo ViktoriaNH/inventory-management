@@ -3,6 +3,7 @@ import { PATHS } from "../data/paths.js";
 import { BurgerButton } from "../components/BurgerButton.jsx";
 import { Logo } from "../components/Logo.jsx";
 import { Navbar } from "../components/Navbar.jsx";
+import { ThemeButton } from "../components/ThemeButton.jsx";
 
 export const Header = () => {
   return (
@@ -16,6 +17,7 @@ export const Header = () => {
         </Link>
         <BurgerButton />
         <Navbar />
+        <ThemeButton />
       </div>
     </nav>
   );

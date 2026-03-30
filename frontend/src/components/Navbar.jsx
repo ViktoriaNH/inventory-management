@@ -2,7 +2,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { MENU_ITEMS } from "../data/menu-items";
 import { Button } from "./Button";
 import { useAuth, useUser } from "@clerk/clerk-react";
-import { BurgerButton } from "./BurgerButton";
 import { useClerkAuthStatus } from "../hooks/useClerkAuthStatus";
 
 export const Navbar = () => {
