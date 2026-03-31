@@ -6,7 +6,7 @@ import {
 export const renderCellValue = (row, column, value) => {
   return (
     column.type === "link" ?
-      <Link className="text-decoration-none" to={column.getLink(row)}>
+      <Link className="link-body-emphasis text-decoration-none" to={column.getLink(row)}>
         {value}
       </Link>
     : column.type === "markdown" ? <MarkdownPreview content={value} />
