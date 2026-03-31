@@ -6,3 +6,23 @@
 .form-check-input:focus {
   border-color: #6c757d;
 }
+
+[data-bs-theme="dark"] {
+  .btn-outline-dark {
+    --bs-btn-color: var(--bs-body-color);
+    --bs-btn-border-color: var(--bs-border-color);
+    --bs-btn-hover-bg: var(--bs-tertiary-bg);
+    --bs-btn-hover-border-color: var(--bs-border-color);
+    --bs-btn-hover-color: var(--bs-body-color);
+  }
+
+  .form-control {
+    background-color: transparent;
+  }
+
+  .alert-danger {
+    --bs-alert-bg: rgba(220, 53, 69, 0.1);
+    --bs-alert-border-color: rgba(220, 53, 69, 0.25);
+    --bs-alert-color: #f8d7da;
+  }
+}
