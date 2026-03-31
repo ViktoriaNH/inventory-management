@@ -13,7 +13,7 @@ export const UserTable = ({
 }) => {
   return (
     <div className="table-responsive mt-1">
-      <table className="table table-hover table-bordered border-dark mb-0">
+      <table className="table table-hover table-bordered mb-0">
         <TableHeader
           columns={columns}
           selectable={selectable}

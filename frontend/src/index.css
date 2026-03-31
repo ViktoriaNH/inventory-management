@@ -8,6 +8,8 @@
 }
 
 [data-bs-theme="dark"] {
+  --bs-heading-color: var(--bs-body-color);
+
   .btn-outline-dark {
     --bs-btn-color: var(--bs-body-color);
     --bs-btn-border-color: var(--bs-border-color);
