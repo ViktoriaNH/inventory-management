@@ -9,7 +9,7 @@ import { InventoryPage } from "./pages/InventoryPage";
 
 export const App = () => {
   useSyncUser();
-
+  
   return (
     <BrowserRouter>
       <Routes>

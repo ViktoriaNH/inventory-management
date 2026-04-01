@@ -1,19 +1,11 @@
-import { useState, useEffect } from "react";
+
 import { Button } from "./Button";
 
-export const ThemeButton = () => {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-bs-theme", theme);
-  }, [theme]);
-
-  const toggle = () =>
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+export const ThemeButton = ({theme, onToggleTheme}) => {
 
   return (
     <Button
-      onClick={toggle}
+      onClick={onToggleTheme}
       className=" ms-3"
       aria-label="Toggle theme"
       text={
