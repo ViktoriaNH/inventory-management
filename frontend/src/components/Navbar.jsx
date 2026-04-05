@@ -3,12 +3,26 @@ import { MENU_ITEMS } from "../data/menu-items";
 import { Button } from "./Button";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { useClerkAuthStatus } from "../hooks/useClerkAuthStatus";
+import { useState } from "react";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { isSignedIn } = useUser();
   const { isAuth } = useClerkAuthStatus();
+
+  const [text, setText] = useState("");
+  const [searchText, setSearchText] = useState("");
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    setSearchText(text);
+    setText("");
+  };
 
   const handleLogout = async () => {
     await signOut();
@@ -37,9 +51,11 @@ export const Navbar = () => {
           placeholder="Search"
           aria-label="Search"
           autoComplete="off"
+          value={text}
+          onChange={handleTextChange}
         />
 
-        <Button text="Search" type="submit" />
+        <Button text="Search" onClick={handleSearchClick} />
       </form>
 
       {isSignedIn ?

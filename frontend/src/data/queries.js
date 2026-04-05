@@ -12,7 +12,7 @@ export const QUERY_KEYS = {
     myProfile: ['users', 'my'],
   },
   text: {
-    searchByText: (text) => ['search', text ]
+    searchByText: (searchText) => ['search', searchText ]
   }
 };
 

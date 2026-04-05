@@ -3,12 +3,13 @@ import { useApi } from "./useApi";
 import { QUERY_KEYS } from "../data/queries";
 import { fetchSearchByText } from "../api/search-api";
 
-export const useSearchByText = (text) => {
+export const useSearchByText = (searchText) => {
   const api = useApi();
 
   return useQuery({
-    queryKey: QUERY_KEYS.text.searchByText(text),
-    queryFn: () => fetchSearchByText(api, text),
-    enabled: !!text,
+    queryKey: QUERY_KEYS.text.searchByText(searchText),
+    queryFn: () => fetchSearchByText(api, searchText),
+    enabled: false,
+   
   });
 };
