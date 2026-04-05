@@ -1,7 +1,7 @@
 import { Input } from "./Input";
 import { FormWrapper } from "../../layouts/FormWrapper";
 import { Button } from "../Button";
-import { ALERT_MESSAGES } from "../../data/alert-messages";
+import { MESSAGES } from "../../data/messages";
 import { Select } from "./Select";
 import { useCategories } from "../../hooks/useCategories";
 import { useCreateInventory } from "../../hooks/useCreateInventory";
@@ -32,7 +32,7 @@ export const CreateInventoryForm = () => {
     <section>
       <h1 className="h4">Create inventory</h1>
 
-      {isError && showAlert(ALERT_MESSAGES.FETCH_ERROR)}
+      {isError && showAlert(MESSAGES.COMMON.FETCH_ERROR)}
 
       <FormWrapper onSubmit={handleCreateInventory}>
         <div className="d-flex flex-column gap-2">

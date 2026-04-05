@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { deleteInventories } from "../api/inventory-api";
-import { ALERT_MESSAGES } from "../data/alert-messages";
+import { MESSAGES } from "../data/messages";
 import { useApi } from "./useApi";
 import { QUERY_INVENTORIES_KEYS } from "../data/queries";
 import { queryClient } from "../config/queryClient";
@@ -20,12 +20,12 @@ export const useDeleteInventories = () => {
     mutationFn: (ids) => deleteInventories(api, ids),
 
     onSuccess: () => {
-      showToast(ALERT_MESSAGES.SUCCESS_DELETING);
+      showToast(MESSAGES.INVENTORY.DELETE_SUCCESS);
       invalidateInventories();
     },
 
     onError: () => {
-      showToast(ALERT_MESSAGES.ERROR_DELETING);
+      showToast(MESSAGES.INVENTORY.DELETE_ERROR);
     },
   });
 
