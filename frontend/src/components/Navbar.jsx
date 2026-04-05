@@ -36,6 +36,7 @@ export const Navbar = () => {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          autoComplete="off"
         />
 
         <Button text="Search" type="submit" />

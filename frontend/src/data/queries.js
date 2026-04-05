@@ -10,6 +10,9 @@ export const QUERY_KEYS = {
   },
   users: {
     myProfile: ['users', 'my'],
+  },
+  text: {
+    searchByText: (text) => ['search', text ]
   }
 };
 
