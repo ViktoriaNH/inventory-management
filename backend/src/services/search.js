@@ -4,7 +4,7 @@ export const searchByText = async (text) => {
   const result = await prisma.$queryRaw`
     SELECT title
     FROM "inventories"
-    WHERE search_vector @@ plainto_tsquery(${text})
+    WHERE search_vector @@ plainto_tsquery('english', ${text})
   `;
   return result;
 };
