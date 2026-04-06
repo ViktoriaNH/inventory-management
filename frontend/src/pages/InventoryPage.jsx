@@ -7,7 +7,6 @@ import { useInventories } from "../hooks/useInventories";
 import { renderQueryState } from "../utils/render-query-state";
 import { QUERY_KEYS } from "../data/queries";
 import { fetchInventoryById } from "../api/inventory-api";
-import { Header } from "../layouts/Header";
 import { PageWrapper } from "../layouts/PageWrapper";
 
 export const InventoryPage = () => {
