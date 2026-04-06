@@ -6,10 +6,11 @@ import { MainPage } from "./pages/MainPage";
 import { PATHS } from "./data/paths";
 import { MyPage } from "./pages/MyPage";
 import { InventoryPage } from "./pages/InventoryPage";
+import { SearchPage } from "./pages/SearchPage";
 
 export const App = () => {
   useSyncUser();
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -33,6 +34,7 @@ export const App = () => {
         <Route path={PATHS.CREATE_INVENTORY} element={<CreateInventory />} />
         <Route path={PATHS.MY_PAGE} element={<MyPage />} />
         <Route path={PATHS.INVENTORY_PAGE} element={<InventoryPage />} />
+        <Route path={PATHS.SEARCH_PAGE} element={<SearchPage />} />
       </Routes>
     </BrowserRouter>
   );

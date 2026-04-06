@@ -12,16 +12,13 @@ export const Navbar = () => {
   const { isAuth } = useClerkAuthStatus();
 
   const [text, setText] = useState("");
-  const [searchText, setSearchText] = useState("");
 
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
 
-  const handleSearchClick = (e) => {
-    e.preventDefault();
-    setSearchText(text);
-    setText("");
+  const handleSearchClick = () => {
+    navigate(`/search?query=${text}`);
   };
 
   const handleLogout = async () => {

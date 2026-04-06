@@ -9,7 +9,6 @@ export const useSearchByText = (searchText) => {
   return useQuery({
     queryKey: QUERY_KEYS.text.searchByText(searchText),
     queryFn: () => fetchSearchByText(api, searchText),
-    enabled: false,
-   
+    enabled: !!searchText,
   });
 };
