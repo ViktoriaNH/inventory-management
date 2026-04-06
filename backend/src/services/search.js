@@ -12,5 +12,12 @@ export const searchByText = async (text) => {
     WHERE i.search_vector @@ plainto_tsquery('english', ${text})
   `;
 
-  return result;
+  return result.map((row) => ({
+    id: row.id,
+    title: row.title,
+    description: row.description,
+    creator: {
+      name: row.creatorName,
+    },
+  }));
 };
