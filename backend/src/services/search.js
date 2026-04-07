@@ -11,7 +11,7 @@ export const searchByText = async (text) => {
       u.name AS "creatorName"
     FROM "inventories" i
     JOIN "users" u ON i.creator_id = u.id
-    WHERE i.search_vector @@ plainto_tsquery('english', ${searchText})
+    WHERE i.search_vector @@ to_tsquery('english', ${searchText})
   `;
 
   return result.map((row) => ({
