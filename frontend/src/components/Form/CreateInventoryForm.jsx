@@ -10,6 +10,7 @@ import { useState } from "react";
 import { MarkdownEditor } from "../Markdown/MarkdownEditor";
 import { Checkbox } from "../Checkbox";
 import { Controller } from "react-hook-form";
+import { TagInput } from "./TagInput";
 
 export const CreateInventoryForm = () => {
   const { data = [] } = useCategories();
@@ -30,7 +31,7 @@ export const CreateInventoryForm = () => {
 
   return (
     <section>
-      <h1 className="h4">Create inventory</h1>
+      <h1 className="h4 mb-3">Create inventory</h1>
 
       {isError && showAlert(MESSAGES.COMMON.FETCH_ERROR)}
 
@@ -49,6 +50,9 @@ export const CreateInventoryForm = () => {
             options={data}
             required
           />
+
+          <TagInput name="tags"/>
+      
           <Controller
             name="isPublic"
             render={() => <Checkbox label="Public inventory" />}

@@ -9,7 +9,7 @@ export const Input = ({ name, label, required, as = "input" }) => {
 
   return (
     <div className="mb-3">
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && <label className="form-label" htmlFor={name}>{label}</label>}
       <Component
         id={name}
         className="form-control"
