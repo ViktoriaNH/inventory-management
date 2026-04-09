@@ -8,9 +8,14 @@ export const TagInput = ({ name }) => {
   const handleKeyDown = (e, field) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      const tags = [...field.value, text.trim()];
-      field.onChange(tags);
-      setText("");
+
+      const finalTag = text.trim().toLowerCase();
+
+      if (finalTag !== "" && !field.value.includes(finalTag)) {
+        const tags = [...field.value, finalTag];
+        field.onChange(tags);
+        setText("");
+      }
     }
   };
 
@@ -25,13 +30,18 @@ export const TagInput = ({ name }) => {
         control={control}
         render={({ field }) => {
           return (
-            <input
-              className="form-control"
-              type="text"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              onKeyDown={(e) => handleKeyDown(e, field)}
-            />
+            <div className="d-flex flex-wrap gap-2">
+              {field.value.map((tag, index) => (
+                <span key={index}>{tag}</span>
+              ))}
+              <input
+                className="form-control"
+                type="text"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e, field)}
+              />
+            </div>
           );
         }}
       />
