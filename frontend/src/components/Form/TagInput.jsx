@@ -19,6 +19,11 @@ export const TagInput = ({ name }) => {
     }
   };
 
+  const onDelete = (field, currTag) => {
+    const newTags = field.value.filter((tag) => tag !== currTag);
+    field.onChange(newTags);
+  };
+
   return (
     <div className="mb-3">
       <label className="form-label" htmlFor={name}>
@@ -31,16 +36,17 @@ export const TagInput = ({ name }) => {
         render={({ field }) => {
           return (
             <div className="d-flex flex-wrap gap-2">
-              {field.value.map((tag, index) => (
+              {field.value.map((tag) => (
                 <span
                   className="badge text-bg-secondary d-flex align-items-center gap-2"
-                  key={index}
+                  key={tag}
                 >
                   {tag}
                   <button
                     type="button"
                     className="btn-close btn-close-white"
                     aria-label="Remove tag"
+                    onClick={() => onDelete(field, tag)}
                   ></button>
                 </span>
               ))}
