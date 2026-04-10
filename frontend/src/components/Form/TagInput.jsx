@@ -32,7 +32,17 @@ export const TagInput = ({ name }) => {
           return (
             <div className="d-flex flex-wrap gap-2">
               {field.value.map((tag, index) => (
-                <span key={index}>{tag}</span>
+                <span
+                  className="badge text-bg-secondary d-flex align-items-center gap-2"
+                  key={index}
+                >
+                  {tag}
+                  <button
+                    type="button"
+                    className="btn-close btn-close-white"
+                    aria-label="Remove tag"
+                  ></button>
+                </span>
               ))}
               <input
                 className="form-control"
