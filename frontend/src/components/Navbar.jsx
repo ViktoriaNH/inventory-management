@@ -4,8 +4,9 @@ import { Button } from "./Button";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { useClerkAuthStatus } from "../hooks/useClerkAuthStatus";
 import { useState } from "react";
+import { ThemeButton } from "./ThemeButton";
 
-export const Navbar = () => {
+export const Navbar = ({theme, onToggleTheme}) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { isSignedIn } = useUser();
@@ -57,7 +58,9 @@ export const Navbar = () => {
 
       {isSignedIn ?
         <Button text="Logout" onClick={handleLogout} className="mt-3 mt-lg-0" />
-      : <Button text="Login" onClick={toSignIn} className="mt-3 mt-lg-0" />}
+      : <Button text="Login" onClick={toSignIn} className="mt-3 mt-lg-0" /> }
+
+      <ThemeButton theme={theme} onToggleTheme={onToggleTheme} />
     </div>
   );
 };
