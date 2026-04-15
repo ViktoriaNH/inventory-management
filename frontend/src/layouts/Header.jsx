@@ -7,11 +7,18 @@ import { useAuth, useUser } from "@clerk/clerk-react";
 import { ThemeButton } from "../components/ThemeButton.jsx";
 import { Button } from "../components/Button.jsx";
 import { Search } from "../components/Search.jsx";
+import { useState } from "react";
 
 export const Header = ({ theme, onToggleTheme }) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { isSignedIn } = useUser();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
 
   const handleLogout = async () => {
     await signOut();
@@ -30,8 +37,8 @@ export const Header = ({ theme, onToggleTheme }) => {
         >
           <Logo />
         </Link>
-        <BurgerButton />
-        <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+        <BurgerButton onClick={toggleMenu} isOpen={isMenuOpen} />
+        <Navbar isOpen={isMenuOpen}/>
         <div className="d-flex align-items-center gap-2">
           <Search />
 

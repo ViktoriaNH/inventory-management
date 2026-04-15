@@ -1,15 +1,12 @@
-export const BurgerButton = () => {
-  const target = "mainNavbar";
-
+export const BurgerButton = ({ onClick, isOpen }) => {
   return (
     <button
       className="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target={`#${target}`}
-      aria-controls={target}
-      aria-expanded={false}
-      aria-label="Toggle navigation"
+      aria-controls="mainNavbar"
+      aria-expanded={isOpen}
+      aria-label="Menu"
+      onClick={onClick}
     >
       <span className="navbar-toggler-icon"></span>
     </button>
