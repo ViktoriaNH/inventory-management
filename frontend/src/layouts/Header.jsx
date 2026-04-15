@@ -6,7 +6,7 @@ import { Navbar } from "../components/Navbar.jsx";
 
 export const Header = ({ theme, onToggleTheme }) => {
   return (
-    <nav className="navbar navbar-expand-lg bg-secondary-subtle d-flex px-1 px-sm-4 py-2 mb-4 w-100">
+    <nav className="navbar navbar-expand-lg bg-secondary-subtle px-1 px-sm-4 py-2 mb-4 w-100">
       <div className="container-fluid ">
         <Link
           to={PATHS.MAIN_PAGE}

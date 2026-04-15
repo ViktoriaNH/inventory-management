@@ -3,24 +3,14 @@ import { MENU_ITEMS } from "../data/menu-items";
 import { Button } from "./Button";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { useClerkAuthStatus } from "../hooks/useClerkAuthStatus";
-import { useState } from "react";
 import { ThemeButton } from "./ThemeButton";
+import { Search } from "./Search";
 
-export const Navbar = ({theme, onToggleTheme}) => {
+export const Navbar = ({ theme, onToggleTheme }) => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { isSignedIn } = useUser();
   const { isAuth } = useClerkAuthStatus();
-
-  const [text, setText] = useState("");
-
-  const handleTextChange = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleSearchClick = () => {
-    navigate(`/search?query=${text}`);
-  };
 
   const handleLogout = async () => {
     await signOut();
@@ -42,25 +32,20 @@ export const Navbar = ({theme, onToggleTheme}) => {
         ))}
       </ul>
 
-      <form className="d-flex me-3" role="search">
-        <input
-          className="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          autoComplete="off"
-          value={text}
-          onChange={handleTextChange}
-        />
+      <div className="d-flex align-items-center gap-2">
 
-        <Button text="Search" onClick={handleSearchClick} />
-      </form>
+        <Search />
 
-      {isSignedIn ?
-        <Button text="Logout" onClick={handleLogout} className="mt-3 mt-lg-0" />
-      : <Button text="Login" onClick={toSignIn} className="mt-3 mt-lg-0" /> }
+        {isSignedIn ?
+          <Button
+            text="Logout"
+            onClick={handleLogout}
+            className="mt-3 mt-lg-0"
+          />
+        : <Button text="Login" onClick={toSignIn} className="mt-3 mt-lg-0" />}
 
-      <ThemeButton theme={theme} onToggleTheme={onToggleTheme} />
+        <ThemeButton theme={theme} onToggleTheme={onToggleTheme} />
+      </div>
     </div>
   );
 };
